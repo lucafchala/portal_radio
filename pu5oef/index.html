@@ -223,8 +223,11 @@
                 padding: 20px;
             }
 
-            iframe {
-                height: 420px;
+            .aprs-box iframe {
+                width: 100%;
+                height: 520px;
+                border: none;
+                background: #000;
             }
         }
     </style>
@@ -380,16 +383,26 @@
 
         <h2>APRS Tracking</h2>
 
-        <div class="aprs-box">
+            <div class="aprs-box">
+
+                <div class="aprs-top">
+                    Rastreamento APRS ao vivo — PU5OEF
+                </div>
+
+            <div class="aprs-box">
 
             <div class="aprs-top">
                 Rastreamento APRS ao vivo — PU5OEF
             </div>
 
             <iframe
-                src="https://aprs.fi/#!call=a%2FPU5OEF&timerange=3600&tail=3600"
-                loading="lazy">
+                src="https://aprs.fi/map/view/embed?call=PU5OEF&z=11&timerange=3600"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                allowfullscreen>
             </iframe>
+
+        </div>
 
         </div>
 
