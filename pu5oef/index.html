@@ -453,59 +453,50 @@
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        
-        // --- SECURITY WARNING ---
-        // Exposing your raw API key here on GitHub Pages means anyone can see it.
-        // Best practice: Use a free Cloudflare Worker or Netlify Function to proxy this request,
-        // so your API key stays hidden on the server side.
-        
-        // For testing, put your key here. For production, change `apiUrl` to point to your proxy.
-        const API_KEY = "YOUR_API_KEY_HERE"; 
-        const CALLSIGN = "PU5OEF";
-        
-        // JSON API URL (Supports standard fetch requests as per 2026 docs)
-        const apiUrl = `https://api.aprs.fi/api/get?name=${CALLSIGN}&what=loc&apikey=${API_KEY}&format=json`;
+  document.addEventListener("DOMContentLoaded", () => {
+    const WORKER_URL = "https://api-key-aprs-pu5oef.lfchala4.workers.dev";
 
-        fetch(apiUrl)
-            .then(response => {
-                if (!response.ok) throw new Error("Erro de rede");
-                return response.json();
-            })
-            .then(data => {
-                if (data.result === "ok" && data.found > 0) {
-                    const entry = data.entries[0];
-                    renderAPRSData(entry);
-                } else {
-                    document.getElementById('aprs-loading').innerText = "Nenhum dado encontrado para esta estação no momento.";
-                }
-            })
-            .catch(error => {
-                console.error("Erro ao buscar dados APRS:", error);
-                document.getElementById('aprs-loading').innerHTML = "Erro ao buscar telemetria. Contate o administrador em <a href=\"mailto:suporte@lucafchala.com?subject=Erro%20na%20Telemetria%20APRS&body=Obtive%20erro%20na%20conex%C3%A3o%20ao%20APRS.\">suporte@lucafchala.com</a>.";
-            });
-    });
+    fetch(WORKER_URL)
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(data => {
+        if (data.result === "ok" && data.found > 0) {
+          renderAPRSData(data.entries[0]);
+        } else {
+          document.getElementById("aprs-loading").innerText =
+            "Nenhum dado encontrado para PU5OEF no momento.";
+        }
+      })
+      .catch(err => {
+        console.error("Erro APRS:", err);
+        document.getElementById("aprs-loading").innerText =
+          "Erro ao buscar telemetria. Tente novamente mais tarde.";
+      });
+  });
 
-    function renderAPRSData(entry) {
-        // Hide loader, show data
-        document.getElementById('aprs-loading').style.display = 'none';
-        document.getElementById('aprs-data').style.display = 'grid';
-        
-        // Turn on the "LED" to green
-        document.getElementById('aprs-led').classList.add('active');
+  function renderAPRSData(entry) {
+    document.getElementById("aprs-loading").style.display = "none";
+    document.getElementById("aprs-data").style.display = "grid";
+    document.getElementById("aprs-led").classList.add("active");
 
-        // Convert Unix Timestamp to readable local time
-        const dateObj = new Date(entry.time * 1000);
-        const timeString = dateObj.toLocaleString('pt-BR');
+    const ts   = new Date(entry.lasttime * 1000);
+    const diff = Math.round((Date.now() / 1000 - entry.lasttime) / 60);
 
-        // Populate the DOM
-        document.getElementById('aprs-time').innerText = timeString;
-        document.getElementById('aprs-coords').innerText = `${entry.lat}, ${entry.lng}`;
-        document.getElementById('aprs-speed').innerText = `${entry.speed ? entry.speed + ' km/h' : '0 km/h'}`;
-        document.getElementById('aprs-alt').innerText = `${entry.altitude ? entry.altitude + ' m' : '0 m'}`;
-        document.getElementById('aprs-path').innerText = entry.path || 'Direto';
-        document.getElementById('aprs-comment').innerText = entry.comment || 'Nenhum comentário';
-    }
+    document.getElementById("aprs-time").innerText =
+      `${ts.toLocaleString("pt-BR")} (${diff} min atrás)`;
+    document.getElementById("aprs-coords").innerText =
+      `${parseFloat(entry.lat).toFixed(5)}, ${parseFloat(entry.lng).toFixed(5)}`;
+    document.getElementById("aprs-speed").innerText =
+      entry.speed != null ? `${entry.speed} km/h` : "parado";
+    document.getElementById("aprs-alt").innerText =
+      entry.altitude != null ? `${Math.round(entry.altitude)} m` : "—";
+    document.getElementById("aprs-path").innerText =
+      entry.path || "Direto";
+    document.getElementById("aprs-comment").innerText =
+      entry.comment || "Sem comentário";
+  }
 </script>
 
 </body>
