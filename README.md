@@ -33,23 +33,6 @@ Inspirado na internet clássica e no espírito experimental do radioamadorismo.
 
 ---
 
-## Estrutura
-
-```txt
-/index.html
-
-/operators/
-/operators/pu2xik/
-/operators/pu2xyz/
-
-/guides/
-/downloads/
-/images/
-/assets/
-````
-
----
-
 ## Deploy
 
 O projeto utiliza:
