@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PU5OEF — Edivaldo Filho</title>
+
+    <meta name="description" content="Página de radioamadorismo de Edivaldo Filho (PU5OEF).">
+
+    <link rel="icon" href="https://tucas.omg.lol/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet/dist/leaflet.css"
+    />
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <style>
+
+        :root {
+            --bg:         #0d0c0a;
+            --border:     #252220;
+            --text:       #e6e1d6;
+            --muted:      #6a6358;
+            --accent:     #c08030;
+            --accent-dim: #6a4818;
+            --panel:      #151310;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'JetBrains Mono', monospace;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            margin: 0;
+            max-width: 760px;
+            margin-inline: auto;
+            padding: 48px 28px 72px;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.28;
+            background-image:
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+        }
+
+        .hero {
+            margin-bottom: 56px;
+        }
+
+        .name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(58px, 11vw, 88px);
+            line-height: 0.92;
+            font-weight: 300;
+            margin-bottom: 18px;
+            letter-spacing: -0.03em;
+        }
+
+        .callsign {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .tagline {
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 10px;
+        }
+
+        .rule {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 38px 0;
+            color: var(--muted);
+            font-size: 10px;
+            letter-spacing: 0.12em;
+        }
+
+        .rule::before,
+        .rule::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .panel {
+            margin-bottom: 52px;
+        }
+
+        h2 {
+            color: var(--muted);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.13em;
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+            font-weight: 400;
+        }
+
+        p {
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.9;
+            margin-bottom: 18px;
+        }
+
+        a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        .arrow {
+            color: var(--accent-dim);
+            margin-right: 7px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 13px;
+            font-weight: 300;
+        }
+
+        .badge-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .badge {
+            border: 1px solid var(--border);
+            background: #141210;
+            padding: 6px 12px;
+            font-size: 11px;
+            color: var(--accent);
+        }
+
+        #map {
+            height: 500px;
+            border: 1px solid var(--border);
+            margin-top: 20px;
+        }
+
+        .muted {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="hero">
+
+        <div class="tagline">
+            Amateur Radio • APRS • DMR • VHF/UHF
+        </div>
+
+        <h1 class="name">
+            Edivaldo<br>
+            <span class="callsign">PU5OEF</span>
+        </h1>
+
+        <p>
+            Radioamador brasileiro apaixonado por APRS,
+            modos digitais e experimentação em RF.
+        </p>
+
+    </div>
+
+    <div class="rule">
+        CQ DE PU5OEF
+    </div>
+
+    <div class="panel">
+
+        <h2>Sobre</h2>
+
+        <p>
+            Olá, meu nome é Edivaldo Filho, tenho 13 anos
+            e tenho como hobby o radioamadorismo.
+        </p>
+
+        <p>
+            Minha história começou em 2024, através do APRS,
+            que foi justamente o que despertou meu interesse
+            pelo radioamadorismo.
+        </p>
+
+        <p>
+            Inicialmente tentei fazer alguns QSOs sem muito sucesso,
+            até conseguir acessar o repetidor PY5MOR.
+            Foi ali que comecei minhas primeiras experiências no rádio.
+        </p>
+
+        <p>
+            Depois disso, o Dony <strong>PY5YG</strong> respondeu
+            minhas chamadas e me explicou corretamente como tudo funcionava,
+            o que acabou me incentivando a conquistar meu próprio indicativo,
+            fazendo referência ao meu nome.
+        </p>
+
+        <p>
+            Também fui apadrinhado pelo Sidnei <strong>PY5TD</strong>,
+            que me presenteou com meu primeiro rádio base.
+        </p>
+
+        <p>
+            73 meus amigos!
+        </p>
+
+    </div>
+
+    <div class="panel">
+
+        <h2>APRS Tracking</h2>
+
+        <p class="muted">
+            Rastreamento APRS ao vivo do indicativo PU5OEF.
+        </p>
+
+        <div id="map"></div>
+
+        <p id="status" class="muted">
+            Carregando posição...
+        </p>
+
+        <p class="muted">
+            APRS data provided by
+            <a href="https://aprs.fi" target="_blank">
+                APRS.fi
+            </a>
+        </p>
+
+    </div>
+
+    <div class="panel">
+
+        <h2>Equipamentos</h2>
+
+        <div class="badge-wrap">
+            <div class="badge">Retevis RT3S</div>
+            <div class="badge">Yaesu FT-2800</div>
+            <div class="badge">Motorola SM-50 (TT1.4)</div>
+        </div>
+
+    </div>
+
+    <div class="panel">
+
+        <h2>Antenas</h2>
+
+        <ul>
+            <li>Plano Terra 5/8 VHF — PY5BH / PY5TD</li>
+            <li>Plano Terra 5/8 VHF — PY5LF</li>
+            <li>Vaso de flores — PU5MNI</li>
+            <li>Aquario móvel 1/4 VHF base magnética</li>
+        </ul>
+
+    </div>
+
+    <div class="panel">
+
+        <h2>Bandas e Modos</h2>
+
+        <div class="badge-wrap">
+            <div class="badge">EchoLink</div>
+            <div class="badge">VHF</div>
+            <div class="badge">UHF</div>
+            <div class="badge">DMR</div>
+            <div class="badge">APRS</div>
+        </div>
+
+    </div>
+
+    <div class="panel">
+
+        <h2>Links</h2>
+
+        <ul>
+
+            <li>
+                <a href="https://instagram.com/pu5oef" target="_blank">
+                    <span class="arrow">→</span> Instagram
+                </a>
+            </li>
+
+            <li>
+                <a href="https://radio.lucafchala.com" target="_blank">
+                    <span class="arrow">→</span> Portal de Rádio
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <footer>
+        radio.lucafchala.com/operators/pu5oef
+    </footer>
+
+<script>
+
+async function loadAPRS() {
+
+    const callsign = "PU5OEF";
+
+    // TROQUE PELA SUA API KEY
+    const apiKey = "YOUR_API_KEY";
+
+    const url =
+        `https://api.aprs.fi/api/get?name=${callsign}&what=loc&apikey=${apiKey}&format=json`;
+
+    try {
+
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (!data.entries || !data.entries.length) {
+
+            document.getElementById("status").innerText =
+                "Nenhuma posição APRS encontrada.";
+
+            return;
+        }
+
+        const station = data.entries[0];
+
+        const lat = parseFloat(station.lat);
+        const lng = parseFloat(station.lng);
+
+        const map = L.map('map').setView([lat, lng], 11);
+
+        L.tileLayer(
+            'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            {
+                attribution: '&copy; OpenStreetMap contributors'
+            }
+        ).addTo(map);
+
+        L.marker([lat, lng])
+            .addTo(map)
+            .bindPopup(callsign)
+            .openPopup();
+
+        const lastHeard =
+            new Date(station.lasttime * 1000).toLocaleString();
+
+        document.getElementById("status").innerHTML = `
+            Última recepção: ${lastHeard}<br>
+            Latitude: ${lat}<br>
+            Longitude: ${lng}<br>
+            Altitude: ${station.altitude || "N/A"} m
+        `;
+
+    } catch (err) {
+
+        console.error(err);
+
+        document.getElementById("status").innerText =
+            "Falha ao carregar dados APRS.";
+    }
+}
+
+loadAPRS();
+
+</script>
+
+</body>
+</html>
