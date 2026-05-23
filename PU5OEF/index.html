@@ -14,44 +14,34 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/leaflet/dist/leaflet.css"
-    />
-
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
-
         :root {
-            --bg:         #0d0c0a;
-            --border:     #252220;
-            --text:       #e6e1d6;
-            --muted:      #6a6358;
-            --accent:     #c08030;
-            --accent-dim: #6a4818;
-            --panel:      #151310;
+            --bg: #0a0d0b;
+            --panel: #111612;
+            --border: #283328;
+            --text: #d9e2d8;
+            --muted: #728072;
+            --accent: #7dff9c;
+            --accent-dim: #3f7d4d;
         }
 
         * {
             box-sizing: border-box;
         }
 
-        html {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'JetBrains Mono', monospace;
-            line-height: 1.75;
-            -webkit-font-smoothing: antialiased;
-        }
-
         body {
             margin: 0;
-            max-width: 760px;
-            margin-inline: auto;
-            padding: 48px 28px 72px;
+            background:
+                radial-gradient(circle at top right, rgba(125,255,156,0.08), transparent 30%),
+                radial-gradient(circle at bottom left, rgba(125,255,156,0.05), transparent 35%),
+                var(--bg);
+
+            color: var(--text);
+
+            font-family: "JetBrains Mono", monospace;
+            line-height: 1.8;
         }
 
         body::after {
@@ -59,356 +49,362 @@
             position: fixed;
             inset: 0;
             pointer-events: none;
-            z-index: 9999;
-            opacity: 0.28;
+            opacity: 0.18;
+
             background-image:
-            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+
+            background-size: 100% 4px;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: auto;
+            padding: 42px 24px 70px;
         }
 
         .hero {
-            margin-bottom: 56px;
+            border: 1px solid var(--border);
+            background: linear-gradient(180deg, rgba(20,28,20,0.95), rgba(12,16,13,0.96));
+            padding: 34px;
+            margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(58px, 11vw, 88px);
-            line-height: 0.92;
-            font-weight: 300;
-            margin-bottom: 18px;
-            letter-spacing: -0.03em;
-        }
-
-        .callsign {
-            color: var(--accent);
-            font-style: italic;
+        .hero::before {
+            content: "CQ CQ CQ";
+            position: absolute;
+            top: 14px;
+            right: 20px;
+            color: rgba(125,255,156,0.08);
+            font-size: 12px;
+            letter-spacing: 0.35em;
         }
 
         .tagline {
             color: var(--muted);
             text-transform: uppercase;
-            letter-spacing: 0.12em;
             font-size: 10px;
+            letter-spacing: 0.18em;
+            margin-bottom: 18px;
         }
 
-        .rule {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin: 38px 0;
+        h1 {
+            margin: 0;
+            line-height: 0.95;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(52px, 10vw, 90px);
+            font-weight: 300;
+        }
+
+        .callsign {
+            color: var(--accent);
+            letter-spacing: 0.12em;
+        }
+
+        .hero p {
+            max-width: 650px;
             color: var(--muted);
-            font-size: 10px;
-            letter-spacing: 0.12em;
-        }
-
-        .rule::before,
-        .rule::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
+            margin-top: 24px;
+            font-size: 13px;
         }
 
         .panel {
-            margin-bottom: 52px;
+            background: rgba(15,20,16,0.94);
+            border: 1px solid var(--border);
+            padding: 24px;
+            margin-bottom: 24px;
         }
 
         h2 {
-            color: var(--muted);
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.13em;
-            margin-bottom: 18px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--border);
-            font-weight: 400;
-        }
-
-        p {
-            font-size: 13px;
-            font-weight: 300;
-            line-height: 1.9;
-            margin-bottom: 18px;
-        }
-
-        a {
-            color: var(--text);
-            text-decoration: none;
-            transition: color 0.15s;
-        }
-
-        a:hover {
+            margin-top: 0;
             color: var(--accent);
+            font-size: 16px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
-        .arrow {
-            color: var(--accent-dim);
-            margin-right: 7px;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        li {
-            margin-bottom: 10px;
-            font-size: 13px;
-            font-weight: 300;
-        }
-
-        .badge-wrap {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
         }
 
         .badge {
+            display: inline-block;
             border: 1px solid var(--border);
-            background: #141210;
-            padding: 6px 12px;
-            font-size: 11px;
+            padding: 7px 12px;
+            margin-right: 8px;
+            margin-bottom: 10px;
+            background: #0d120f;
             color: var(--accent);
-        }
-
-        #map {
-            height: 500px;
-            border: 1px solid var(--border);
-            margin-top: 20px;
-        }
-
-        .muted {
-            color: var(--muted);
             font-size: 12px;
         }
 
-        footer {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-            color: var(--muted);
-            font-size: 11px;
+        ul {
+            padding-left: 18px;
         }
 
+        li {
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .quote {
+            padding-left: 18px;
+            border-left: 2px solid var(--accent-dim);
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .aprs-box {
+            border: 1px solid var(--border);
+            overflow: hidden;
+            background: #0b100c;
+        }
+
+        .aprs-top {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        iframe {
+            width: 100%;
+            height: 520px;
+            border: none;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 11px;
+            letter-spacing: 0.08em;
+        }
+
+        code {
+            color: var(--accent);
+        }
+
+        .station-info {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        .info-box {
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            background: #0d120f;
+            font-size: 12px;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                padding: 28px 18px 50px;
+            }
+
+            .hero,
+            .panel {
+                padding: 20px;
+            }
+
+            iframe {
+                height: 420px;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="hero">
+<div class="container">
+
+    <section class="hero">
 
         <div class="tagline">
-            Amateur Radio • APRS • DMR • VHF/UHF
+            APRS • VHF • UHF • DMR • EchoLink
         </div>
 
-        <h1 class="name">
-            Edivaldo<br>
+        <h1>
+            Edivaldo Filho<br>
             <span class="callsign">PU5OEF</span>
         </h1>
 
         <p>
-            Radioamador brasileiro apaixonado por APRS,
-            modos digitais e experimentação em RF.
+            Jovem radioamador apaixonado por APRS, modos digitais e operação em VHF/UHF.
+            Operando diretamente do Paraná e explorando o mundo do rádio desde 2024.
         </p>
 
-    </div>
+        <div class="station-info">
+            <div class="info-box">
+                Indicativo: <strong>PU5OEF</strong>
+            </div>
 
-    <div class="rule">
-        CQ DE PU5OEF
-    </div>
+            <div class="info-box">
+                Hobby principal: <strong>APRS</strong>
+            </div>
 
-    <div class="panel">
+            <div class="info-box">
+                Instagram: <strong>@pu5oef</strong>
+            </div>
+        </div>
 
-        <h2>Sobre</h2>
+    </section>
+
+    <section class="panel">
+
+        <h2>História no Rádio</h2>
 
         <p>
-            Olá, meu nome é Edivaldo Filho, tenho 13 anos
+            Olá, meu nome é <strong>Edivaldo Filho</strong>, tenho 13 anos
             e tenho como hobby o radioamadorismo.
         </p>
 
         <p>
-            Minha história começou em 2024, através do APRS,
-            que foi justamente o que despertou meu interesse
-            pelo radioamadorismo.
+            Minha história começou em 2024 com o APRS, que acabou me levando
+            ao radioamadorismo. Inicialmente tentei realizar QSOs sem sucesso,
+            até conseguir acessar o repetidor <strong>PY5MOR</strong>.
         </p>
 
-        <p>
-            Inicialmente tentei fazer alguns QSOs sem muito sucesso,
-            até conseguir acessar o repetidor PY5MOR.
-            Foi ali que comecei minhas primeiras experiências no rádio.
-        </p>
+        <div class="quote">
+            “Não faça isso, por favor! Haha”
+        </div>
 
         <p>
-            Depois disso, o Dony <strong>PY5YG</strong> respondeu
-            minhas chamadas e me explicou corretamente como tudo funcionava,
-            o que acabou me incentivando a conquistar meu próprio indicativo,
+            Foi então que o <strong>Dony PY5YG</strong> respondeu minhas chamadas,
+            me orientou gentilmente e ajudou no início da minha jornada no rádio.
+            Depois disso veio meu indicativo <strong>PU5OEF</strong>,
             fazendo referência ao meu nome.
         </p>
 
         <p>
-            Também fui apadrinhado pelo Sidnei <strong>PY5TD</strong>,
-            que me presenteou com meu primeiro rádio base.
+            Posteriormente também fui apadrinhado pelo
+            <strong>Sidnei PY5TD</strong>, que me presenteou
+            com meu primeiro rádio base.
         </p>
 
         <p>
-            73 meus amigos!
+            <strong>73 meus amigos!</strong>
         </p>
+
+    </section>
+
+    <div class="grid">
+
+        <section class="panel">
+
+            <h2>Equipamentos</h2>
+
+            <div class="badge">Retevis RT3S</div>
+            <div class="badge">Yaesu FT-2800</div>
+            <div class="badge">Motorola SM-50</div>
+            <div class="badge">TT1.4</div>
+
+        </section>
+
+        <section class="panel">
+
+            <h2>Antenas</h2>
+
+            <ul>
+                <li>Plano Terra 5/8 VHF — PY5BH / PY5TD</li>
+                <li>Plano Terra 5/8 VHF — PY5LF</li>
+                <li>Vaso de Flores — PU5MNI</li>
+                <li>Aquario móvel 1/4 VHF magnética</li>
+            </ul>
+
+        </section>
 
     </div>
 
-    <div class="panel">
+    <div class="grid">
+
+        <section class="panel">
+
+            <h2>Bandas & Modos</h2>
+
+            <ul>
+                <li>EchoLink</li>
+                <li>VHF</li>
+                <li>UHF</li>
+                <li>DMR</li>
+                <li>APRS</li>
+            </ul>
+
+        </section>
+
+        <section class="panel">
+
+            <h2>Links</h2>
+
+            <ul>
+                <li>
+                    <a href="https://www.instagram.com/pu5oef/" target="_blank">
+                        Instagram
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.qrz.com/db/PU5OEF" target="_blank">
+                        QRZ.com
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://radio.lucafchala.com" target="_blank">
+                        Portal de Rádio
+                    </a>
+                </li>
+            </ul>
+
+        </section>
+
+    </div>
+
+    <section class="panel">
 
         <h2>APRS Tracking</h2>
 
-        <p class="muted">
-            Rastreamento APRS ao vivo do indicativo PU5OEF.
-        </p>
+        <div class="aprs-box">
 
-        <div id="map"></div>
+            <div class="aprs-top">
+                Rastreamento APRS ao vivo — PU5OEF
+            </div>
 
-        <p id="status" class="muted">
-            Carregando posição...
-        </p>
+            <iframe
+                src="https://aprs.fi/#!call=a%2FPU5OEF&timerange=3600&tail=3600"
+                loading="lazy">
+            </iframe>
 
-        <p class="muted">
-            APRS data provided by
-            <a href="https://aprs.fi" target="_blank">
-                APRS.fi
-            </a>
-        </p>
-
-    </div>
-
-    <div class="panel">
-
-        <h2>Equipamentos</h2>
-
-        <div class="badge-wrap">
-            <div class="badge">Retevis RT3S</div>
-            <div class="badge">Yaesu FT-2800</div>
-            <div class="badge">Motorola SM-50 (TT1.4)</div>
         </div>
 
-    </div>
+        <p style="margin-top:14px; color:var(--muted); font-size:12px;">
+            Dados APRS fornecidos por
+            <a href="https://aprs.fi" target="_blank">aprs.fi</a>.
+        </p>
 
-    <div class="panel">
-
-        <h2>Antenas</h2>
-
-        <ul>
-            <li>Plano Terra 5/8 VHF — PY5BH / PY5TD</li>
-            <li>Plano Terra 5/8 VHF — PY5LF</li>
-            <li>Vaso de flores — PU5MNI</li>
-            <li>Aquario móvel 1/4 VHF base magnética</li>
-        </ul>
-
-    </div>
-
-    <div class="panel">
-
-        <h2>Bandas e Modos</h2>
-
-        <div class="badge-wrap">
-            <div class="badge">EchoLink</div>
-            <div class="badge">VHF</div>
-            <div class="badge">UHF</div>
-            <div class="badge">DMR</div>
-            <div class="badge">APRS</div>
-        </div>
-
-    </div>
-
-    <div class="panel">
-
-        <h2>Links</h2>
-
-        <ul>
-
-            <li>
-                <a href="https://instagram.com/pu5oef" target="_blank">
-                    <span class="arrow">→</span> Instagram
-                </a>
-            </li>
-
-            <li>
-                <a href="https://radio.lucafchala.com" target="_blank">
-                    <span class="arrow">→</span> Portal de Rádio
-                </a>
-            </li>
-
-        </ul>
-
-    </div>
+    </section>
 
     <footer>
-        radio.lucafchala.com/operators/pu5oef
+        radio.lucafchala.com/pu5oef
     </footer>
 
-<script>
-
-async function loadAPRS() {
-
-    const callsign = "PU5OEF";
-
-    // TROQUE PELA SUA API KEY
-    const apiKey = "YOUR_API_KEY";
-
-    const url =
-        `https://api.aprs.fi/api/get?name=${callsign}&what=loc&apikey=${apiKey}&format=json`;
-
-    try {
-
-        const response = await fetch(url);
-        const data = await response.json();
-
-        if (!data.entries || !data.entries.length) {
-
-            document.getElementById("status").innerText =
-                "Nenhuma posição APRS encontrada.";
-
-            return;
-        }
-
-        const station = data.entries[0];
-
-        const lat = parseFloat(station.lat);
-        const lng = parseFloat(station.lng);
-
-        const map = L.map('map').setView([lat, lng], 11);
-
-        L.tileLayer(
-            'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-            {
-                attribution: '&copy; OpenStreetMap contributors'
-            }
-        ).addTo(map);
-
-        L.marker([lat, lng])
-            .addTo(map)
-            .bindPopup(callsign)
-            .openPopup();
-
-        const lastHeard =
-            new Date(station.lasttime * 1000).toLocaleString();
-
-        document.getElementById("status").innerHTML = `
-            Última recepção: ${lastHeard}<br>
-            Latitude: ${lat}<br>
-            Longitude: ${lng}<br>
-            Altitude: ${station.altitude || "N/A"} m
-        `;
-
-    } catch (err) {
-
-        console.error(err);
-
-        document.getElementById("status").innerText =
-            "Falha ao carregar dados APRS.";
-    }
-}
-
-loadAPRS();
-
-</script>
+</div>
 
 </body>
 </html>
