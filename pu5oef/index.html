@@ -5,9 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>PU5OEF — Edivaldo Filho</title>
+    <!-- ── SEO Básico ── -->
+    <title>PU5OEF — Edivaldo Filho | Radioamador Paraná</title>
+    <meta name="description" content="Página de Edivaldo Filho (PU5OEF), jovem radioamador do Paraná apaixonado por APRS, modos digitais e operação em VHF/UHF. Rastreamento APRS ao vivo.">
+    <meta name="keywords" content="PU5OEF, radioamador, APRS, VHF, UHF, DMR, EchoLink, Paraná, Brasil, ham radio">
+    <meta name="author" content="Edivaldo Filho — PU5OEF">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://radio.lucafchala.com/pu5oef/">
 
-    <meta name="description" content="Página de radioamadorismo de Edivaldo Filho (PU5OEF).">
+    <!-- ── Open Graph (WhatsApp, Facebook, Discord, Telegram) ── -->
+    <meta property="og:type"        content="website">
+    <meta property="og:url"         content="https://radio.lucafchala.com/pu5oef/">
+    <meta property="og:title"       content="PU5OEF — Edivaldo Filho | Radioamador Paraná">
+    <meta property="og:description" content="Jovem radioamador apaixonado por APRS, modos digitais e operação em VHF/UHF. Operando diretamente do Paraná desde 2024. Rastreamento APRS ao vivo.">
+    <meta property="og:image"       content="https://radio.lucafchala.com/pu5oef/og-image.png">
+    <meta property="og:image:width"  content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale"      content="pt_BR">
+    <meta property="og:site_name"   content="Portal de Rádio — lucafchala.com">
+
+    <!-- ── Twitter / X Card ── -->
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:url"         content="https://radio.lucafchala.com/pu5oef/">
+    <meta name="twitter:title"       content="PU5OEF — Edivaldo Filho | Radioamador Paraná">
+    <meta name="twitter:description" content="Jovem radioamador apaixonado por APRS, modos digitais e operação em VHF/UHF. Rastreamento APRS ao vivo.">
+    <meta name="twitter:image"       content="https://radio.lucafchala.com/pu5oef/og-image.png">
+
+    <!-- ── Schema.org (Google) ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "name": "PU5OEF — Edivaldo Filho",
+      "url": "https://radio.lucafchala.com/pu5oef/",
+      "description": "Página de radioamadorismo de Edivaldo Filho (PU5OEF), jovem operador do Paraná.",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Edivaldo Filho",
+        "identifier": "PU5OEF",
+        "url": "https://radio.lucafchala.com/pu5oef/",
+        "sameAs": [
+          "https://www.instagram.com/pu5oef/",
+          "https://www.qrz.com/db/PU5OEF",
+          "https://aprs.fi/info/a/PU5OEF"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Paraná",
+          "addressCountry": "BR"
+        }
+      }
+    }
+    </script>
 
     <link rel="icon" href="https://tucas.omg.lol/favicon.ico">
 
@@ -141,22 +190,14 @@
             font-size: 12px;
         }
 
-        ul {
-            padding-left: 18px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
+        ul { padding-left: 18px; }
+        li { margin-bottom: 8px; }
 
         a {
             color: var(--accent);
             text-decoration: none;
         }
-
-        a:hover {
-            text-decoration: underline;
-        }
+        a:hover { text-decoration: underline; }
 
         .quote {
             padding-left: 18px;
@@ -165,7 +206,7 @@
             font-style: italic;
         }
 
-        /* ── Station info boxes ── */
+        /* ── Station info ── */
         .station-info {
             display: flex;
             gap: 12px;
@@ -254,13 +295,8 @@
             line-height: 1.7;
         }
 
-        .leaflet-popup-tip {
-            background: #111612;
-        }
-
-        .leaflet-popup-content a {
-            color: #7dff9c;
-        }
+        .leaflet-popup-tip { background: #111612; }
+        .leaflet-popup-content a { color: #7dff9c; }
 
         /* ── Footer ── */
         footer {
@@ -271,24 +307,13 @@
             letter-spacing: 0.08em;
         }
 
-        code {
-            color: var(--accent);
-        }
+        code { color: var(--accent); }
 
         /* ── Mobile ── */
         @media (max-width: 700px) {
-            .container {
-                padding: 28px 18px 50px;
-            }
-
-            .hero,
-            .panel {
-                padding: 20px;
-            }
-
-            #aprs-map {
-                height: 300px;
-            }
+            .container { padding: 28px 18px 50px; }
+            .hero, .panel { padding: 20px; }
+            #aprs-map { height: 300px; }
         }
     </style>
 </head>
@@ -299,77 +324,51 @@
 
     <!-- ── Hero ── -->
     <section class="hero">
-
-        <div class="tagline">
-            APRS • VHF • UHF • DMR • EchoLink
-        </div>
-
+        <div class="tagline">APRS • VHF • UHF • DMR • EchoLink</div>
         <h1>
             Edivaldo Filho<br>
             <span class="callsign">PU5OEF</span>
         </h1>
-
         <p>
             Jovem radioamador apaixonado por APRS, modos digitais e operação em VHF/UHF.
             Operando diretamente do Paraná e explorando o mundo do rádio desde 2024.
         </p>
-
         <div class="station-info">
-            <div class="info-box">
-                Indicativo: <strong>PU5OEF</strong>
-            </div>
-            <div class="info-box">
-                Hobby principal: <strong>APRS</strong>
-            </div>
-            <div class="info-box">
-                Instagram: <strong>@pu5oef</strong>
-            </div>
+            <div class="info-box">Indicativo: <strong>PU5OEF</strong></div>
+            <div class="info-box">Hobby principal: <strong>APRS</strong></div>
+            <div class="info-box">Instagram: <strong>@pu5oef</strong></div>
         </div>
-
     </section>
 
     <!-- ── História ── -->
     <section class="panel">
-
         <h2>História no Rádio</h2>
-
         <p>
             Olá, meu nome é <strong>Edivaldo Filho</strong>, tenho 13 anos
             e tenho como hobby o radioamadorismo.
         </p>
-
         <p>
             Minha história começou em 2024 com o APRS, que acabou me levando
             ao radioamadorismo. Inicialmente tentei realizar QSOs sem sucesso,
             até conseguir acessar o repetidor <strong>PY5MOR</strong>.
         </p>
-
-        <div class="quote">
-            "Não faça isso, por favor! Haha"
-        </div>
-
+        <div class="quote">"Não faça isso, por favor! Haha"</div>
         <p>
             Foi então que o <strong>Dony PY5YG</strong> respondeu minhas chamadas,
             me orientou gentilmente e ajudou no início da minha jornada no rádio.
             Depois disso veio meu indicativo <strong>PU5OEF</strong>,
             fazendo referência ao meu nome.
         </p>
-
         <p>
             Posteriormente também fui apadrinhado pelo
             <strong>Sidnei PY5TD</strong>, que me presenteou
             com meu primeiro rádio base.
         </p>
-
-        <p>
-            <strong>73 meus amigos!</strong>
-        </p>
-
+        <p><strong>73 meus amigos!</strong></p>
     </section>
 
     <!-- ── Equipamentos + Antenas ── -->
     <div class="grid">
-
         <section class="panel">
             <h2>Equipamentos</h2>
             <div class="badge">Retevis RT3S</div>
@@ -377,7 +376,6 @@
             <div class="badge">Motorola SM-50</div>
             <div class="badge">TT1.4</div>
         </section>
-
         <section class="panel">
             <h2>Antenas</h2>
             <ul>
@@ -387,12 +385,10 @@
                 <li>Aquario móvel 1/4 VHF magnética</li>
             </ul>
         </section>
-
     </div>
 
     <!-- ── Bandas + Links ── -->
     <div class="grid">
-
         <section class="panel">
             <h2>Bandas &amp; Modos</h2>
             <ul>
@@ -403,83 +399,66 @@
                 <li>APRS</li>
             </ul>
         </section>
-
         <section class="panel">
             <h2>Links</h2>
             <ul>
-                <li>
-                    <a href="https://www.instagram.com/pu5oef/" target="_blank">Instagram</a>
-                </li>
-                <li>
-                    <a href="https://www.qrz.com/db/PU5OEF" target="_blank">QRZ.com</a>
-                </li>
-                <li>
-                    <a href="https://radio.lucafchala.com" target="_blank">Portal de Rádio</a>
-                </li>
+                <li><a href="https://www.instagram.com/pu5oef/" target="_blank" rel="noopener">Instagram</a></li>
+                <li><a href="https://www.qrz.com/db/PU5OEF"    target="_blank" rel="noopener">QRZ.com</a></li>
+                <li><a href="https://radio.lucafchala.com"      target="_blank" rel="noopener">Portal de Rádio</a></li>
             </ul>
         </section>
-
     </div>
 
     <!-- ── APRS Tracking ── -->
     <section class="panel">
-
         <h2>APRS Tracking</h2>
 
         <div class="aprs-box">
-
             <div class="aprs-top">
                 <span>Rastreamento de Telemetria — PU5OEF</span>
                 <span id="aprs-led" class="aprs-status-indicator" title="Status de conexão"></span>
             </div>
 
-            <!-- Loading state -->
             <div id="aprs-loading">Conectando aos servidores APRS-IS...</div>
 
-            <!-- Telemetria em grade -->
             <div class="aprs-grid" id="aprs-data" style="display:none;">
                 <div class="info-box">
-                    <span style="color:var(--muted); font-size:10px; display:block;">ÚLTIMO SINAL</span>
+                    <span style="color:var(--muted);font-size:10px;display:block;">ÚLTIMO SINAL</span>
                     <strong id="aprs-time">--</strong>
                 </div>
                 <div class="info-box">
-                    <span style="color:var(--muted); font-size:10px; display:block;">COORDENADAS</span>
+                    <span style="color:var(--muted);font-size:10px;display:block;">COORDENADAS</span>
                     <strong id="aprs-coords">--</strong>
                 </div>
                 <div class="info-box">
-                    <span style="color:var(--muted); font-size:10px; display:block;">VELOCIDADE</span>
+                    <span style="color:var(--muted);font-size:10px;display:block;">VELOCIDADE</span>
                     <strong id="aprs-speed">--</strong>
                 </div>
                 <div class="info-box">
-                    <span style="color:var(--muted); font-size:10px; display:block;">ALTITUDE</span>
+                    <span style="color:var(--muted);font-size:10px;display:block;">ALTITUDE</span>
                     <strong id="aprs-alt">--</strong>
                 </div>
-                <div class="info-box" style="grid-column: 1 / -1;">
-                    <span style="color:var(--muted); font-size:10px; display:block;">ROTA (PATH)</span>
+                <div class="info-box" style="grid-column:1/-1;">
+                    <span style="color:var(--muted);font-size:10px;display:block;">ROTA (PATH)</span>
                     <strong id="aprs-path" style="color:var(--accent);">--</strong>
                 </div>
-                <div class="info-box" style="grid-column: 1 / -1;">
-                    <span style="color:var(--muted); font-size:10px; display:block;">COMENTÁRIO</span>
+                <div class="info-box" style="grid-column:1/-1;">
+                    <span style="color:var(--muted);font-size:10px;display:block;">COMENTÁRIO</span>
                     <strong id="aprs-comment">--</strong>
                 </div>
             </div>
 
-            <!-- Mapa Leaflet (aparece após dados carregarem) -->
             <div id="aprs-map" style="display:none;"></div>
-
         </div>
 
-        <p style="margin-top:14px; color:var(--muted); font-size:12px;">
-            Dados via API JSON fornecidos por <a href="https://aprs.fi" target="_blank">aprs.fi</a>.
+        <p style="margin-top:14px;color:var(--muted);font-size:12px;">
+            Dados via API JSON fornecidos por <a href="https://aprs.fi" target="_blank" rel="noopener">aprs.fi</a>.
             &nbsp;·&nbsp;
-            <a href="https://aprs.fi/info/a/PU5OEF" target="_blank">Ver histórico completo ↗</a>
+            <a href="https://aprs.fi/info/a/PU5OEF" target="_blank" rel="noopener">Ver histórico completo ↗</a>
         </p>
-
     </section>
 
-    <footer>
-        radio.lucafchala.com/pu5oef
-    </footer>
+    <footer>radio.lucafchala.com/pu5oef</footer>
 
 </div>
 
@@ -488,8 +467,6 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-
-        // Worker Cloudflare — chave fica segura no server-side
         const WORKER_URL = "https://api-key-aprs-pu5oef.lfchala4.workers.dev";
 
         fetch(WORKER_URL)
@@ -513,24 +490,17 @@
     });
 
     function renderAPRSData(entry) {
-
-        // Esconde loader, mostra grade
         document.getElementById("aprs-loading").style.display = "none";
         document.getElementById("aprs-data").style.display   = "grid";
-
-        // LED verde pulsante
         document.getElementById("aprs-led").classList.add("active");
 
-        // Timestamp legível
         const ts   = new Date(entry.lasttime * 1000);
         const diff = Math.round((Date.now() / 1000 - entry.lasttime) / 60);
         const tsStr = ts.toLocaleString("pt-BR");
 
-        // Coordenadas
         const lat = parseFloat(entry.lat);
         const lng = parseFloat(entry.lng);
 
-        // Popula campos de telemetria
         document.getElementById("aprs-time").innerText =
             `${tsStr} (${diff} min atrás)`;
         document.getElementById("aprs-coords").innerText =
@@ -555,32 +525,29 @@
             attributionControl: true
         });
 
-        // Tiles OpenStreetMap (gratuito, sem chave)
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
             attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
             maxZoom: 19
         }).addTo(map);
 
-        // Marcador verde estilizado com o tema da página
         const icon = L.divIcon({
             className: "",
             html: `<div style="
-                width: 14px;
-                height: 14px;
-                background: #7dff9c;
-                border: 2px solid #0a0d0b;
-                border-radius: 50%;
-                box-shadow: 0 0 12px #7dff9c;
+                width:14px; height:14px;
+                background:#7dff9c;
+                border:2px solid #0a0d0b;
+                border-radius:50%;
+                box-shadow:0 0 12px #7dff9c;
             "></div>`,
-            iconSize:   [14, 14],
-            iconAnchor: [7, 7],
+            iconSize:    [14, 14],
+            iconAnchor:  [7, 7],
             popupAnchor: [0, -10]
         });
 
         L.marker([lat, lng], { icon })
             .addTo(map)
             .bindPopup(`
-                <strong style="color:#7dff9c; font-size:13px;">PU5OEF</strong><br>
+                <strong style="color:#7dff9c;font-size:13px;">PU5OEF</strong><br>
                 ${lat.toFixed(5)}, ${lng.toFixed(5)}<br>
                 Velocidade: ${entry.speed != null ? entry.speed + " km/h" : "parado"}<br>
                 Altitude: ${entry.altitude != null ? Math.round(entry.altitude) + " m" : "—"}<br>
