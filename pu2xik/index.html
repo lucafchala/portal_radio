@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-    
-<link rel="icon" href="https://tucas.omg.lol/favicon.ico">
+<html lang="pt-BR" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,157 +11,256 @@
 
     <link rel="icon" href="https://tucas.omg.lol/favicon.ico">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
     <style>
-        :root {
-            --bg: #0d0c0a;
-            --panel: #151310;
-            --border: #252220;
-            --text: #e6e1d6;
-            --muted: #756d61;
-            --accent: #c08030;
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        * {
-            box-sizing: border-box;
+        :root {
+            --bg: #0d0c0a;
+            --border: #252220;
+            --text: #e6e1d6;
+            --muted: #6a6358;
+            --accent: #c08030;
+            --accent-dim: #6a4818;
+            --panel: #141210;
+        }
+
+        html {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--text);
-            font-family: "JetBrains Mono", monospace;
-            line-height: 1.7;
+            min-height: 100vh;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 48px 32px 72px;
         }
 
-        .container {
-            max-width: 850px;
-            margin: auto;
-            padding: 42px 24px 70px;
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+            opacity: 0.28;
         }
 
-        .panel {
-            background: var(--panel);
-            border: 1px solid var(--border);
-            padding: 26px;
-            margin-bottom: 24px;
+        header {
+            margin-bottom: 52px;
+            animation: rise 0.9s cubic-bezier(0.16,1,0.3,1) both;
         }
 
-        h1, h2 {
-            margin-top: 0;
-            color: var(--accent);
-            font-weight: 500;
+        .name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(56px, 11vw, 84px);
+            font-weight: 300;
+            line-height: 0.92;
+            letter-spacing: -0.025em;
+            margin-bottom: 18px;
         }
 
         .callsign {
             color: var(--accent);
-            letter-spacing: 0.12em;
+            font-style: italic;
         }
 
-        .muted {
+        .micro {
+            margin-bottom: 22px;
             color: var(--muted);
-        }
-
-        .hero {
-            margin-bottom: 10px;
-        }
-
-        .hero h1 {
-            font-size: clamp(42px, 8vw, 72px);
-            line-height: 0.95;
-            margin-bottom: 12px;
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
         }
 
         .tagline {
-            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 10.5px;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
-            font-size: 11px;
+            color: var(--muted);
+            flex-wrap: wrap;
         }
 
-        ul {
-            padding-left: 20px;
+        .tagline .sep {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--border);
         }
 
-        a {
-            color: var(--accent);
-            text-decoration: none;
+        .rule {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 36px 0;
+            color: var(--muted);
+            font-size: 10px;
+            letter-spacing: 0.1em;
         }
 
-        a:hover {
-            text-decoration: underline;
+        .rule::before,
+        .rule::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .bio {
+            font-weight: 300;
+            font-size: 13px;
+            line-height: 1.9;
+            margin-bottom: 48px;
+            max-width: 620px;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 26px;
+            margin-bottom: 36px;
+        }
+
+        .panel {
+            border: 1px solid var(--border);
+            background: var(--panel);
+            padding: 22px;
+        }
+
+        .panel h2 {
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
         }
 
         .badge {
             display: inline-block;
             padding: 5px 10px;
             border: 1px solid var(--border);
-            background: #100f0d;
             color: var(--accent);
             font-size: 11px;
             margin-right: 8px;
             margin-bottom: 8px;
         }
 
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        .arr {
+            color: var(--accent-dim);
+            margin-right: 7px;
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+
+        a:hover .arr {
+            color: var(--accent);
+            transform: translateX(3px);
+        }
+
         footer {
-            margin-top: 40px;
+            margin-top: 54px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
             color: var(--muted);
-            font-size: 12px;
+            font-size: 11px;
             text-align: center;
         }
 
-        code {
-            color: var(--accent);
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 680px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                padding: 34px 22px 60px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<div class="container">
+    <header>
 
-    <div class="panel hero">
-
-        <div class="tagline">
-            Amateur Radio • RF • Digital Modes
-        </div>
-
-        <h1>
+        <h1 class="name">
             Luca<br>
             <span class="callsign">PU2XIK</span>
         </h1>
 
-        <p class="muted">
-            Radioamador baseado em São Paulo, focado em RF,
-            APRS, modos digitais, infraestrutura portátil,
-            experimentação e comunicação resiliente.
+        <p class="micro">
+            amateur radio · rf · digital modes
         </p>
 
-    </div>
+        <div class="tagline">
+            <span>Radioamador</span>
+            <span class="sep"></span>
+            <span>RF</span>
+            <span class="sep"></span>
+            <span>APRS</span>
+            <span class="sep"></span>
+            <span>São Paulo, BR</span>
+        </div>
 
-    <div class="panel">
+    </header>
 
-        <h2>Sobre</h2>
+    <div class="rule">CQ DE PU2XIK</div>
 
-        <p>
-            Opero sob o indicativo <strong>PU2XIK</strong>,
-            explorando principalmente VHF/UHF, APRS,
-            rádio digital e infraestrutura portátil.
-        </p>
-
-        <p>
-            Tenho interesse em sistemas resilientes,
-            comunicação descentralizada, packet radio,
-            DMR, OpenGD77, antenas e integração entre
-            rádio e tecnologia.
-        </p>
-
-    </div>
+    <p class="bio">
+        Opero sob o indicativo <strong>PU2XIK</strong>,
+        com foco em APRS, rádio digital, infraestrutura portátil,
+        RF, field operations e comunicação resiliente.
+        Tenho interesse em sistemas descentralizados,
+        packet radio, DMR, OpenGD77, antenas e integração
+        entre rádio e tecnologia.
+    </p>
 
     <div class="grid">
 
@@ -172,9 +270,9 @@
 
             <div class="badge">UV-K6</div>
             <div class="badge">RT3S</div>
-            <div class="badge">OpenGD77</div>
             <div class="badge">DMR</div>
             <div class="badge">APRS</div>
+            <div class="badge">OpenGD77</div>
 
         </div>
 
@@ -183,12 +281,11 @@
             <h2>Interesses</h2>
 
             <ul>
-                <li>APRS</li>
                 <li>Packet Radio</li>
-                <li>DMR</li>
                 <li>Infraestrutura portátil</li>
-                <li>Field operations</li>
+                <li>Field Operations</li>
                 <li>Antenas</li>
+                <li>RF Experimental</li>
             </ul>
 
         </div>
@@ -200,23 +297,31 @@
         <h2>Links</h2>
 
         <ul>
+
             <li>
                 <a href="https://www.qrz.com/db/PU2XIK" target="_blank">
-                    QRZ.com
+                    <span class="arr">→</span> QRZ.com
                 </a>
             </li>
 
             <li>
                 <a href="https://lucafchala.com" target="_blank">
-                    lucafchala.com
+                    <span class="arr">→</span> lucafchala.com
                 </a>
             </li>
 
             <li>
                 <a href="https://radio.lucafchala.com" target="_blank">
-                    Portal de Rádio
+                    <span class="arr">→</span> Radio Portal
                 </a>
             </li>
+
+            <li>
+                <a href="https://github.com/lucafchala/portal_radio" target="_blank">
+                    <span class="arr">→</span> GitHub Repository
+                </a>
+            </li>
+
         </ul>
 
     </div>
@@ -225,25 +330,15 @@
 
         <h2>Status</h2>
 
-        <p>
-            <strong>QTH:</strong> São Paulo, Brasil
-        </p>
-
-        <p>
-            <strong>Status:</strong> ativo
-        </p>
-
-        <p>
-            <strong>Indicativo:</strong> <code>PU2XIK</code>
-        </p>
+        <p><strong>QTH:</strong> São Paulo, Brasil</p>
+        <p><strong>Status:</strong> ativo</p>
+        <p><strong>Indicativo:</strong> PU2XIK</p>
 
     </div>
 
     <footer>
         radio.lucafchala.com/pu2xik
     </footer>
-
-</div>
 
 </body>
 </html>
