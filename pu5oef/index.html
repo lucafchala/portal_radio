@@ -482,7 +482,7 @@
             })
             .catch(error => {
                 console.error("Erro ao buscar dados APRS:", error);
-                document.getElementById('aprs-loading').innerText = "Erro ao buscar telemetria. Contate o administrador em suporte@lucafchala.com.";
+                document.getElementById('aprs-loading').innerHTML = "Erro ao buscar telemetria. Contate o administrador em <a href=\"mailto:suporte@lucafchala.com?subject=Erro%20na%20Telemetria%20APRS&body=Obtive%20erro%20na%20conex%C3%A3o%20ao%20APRS.\">suporte@lucafchala.com</a>.";
             });
     });
 
