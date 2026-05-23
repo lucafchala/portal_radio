@@ -13,8 +13,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
     <style>
         :root {
@@ -37,9 +39,7 @@
                 radial-gradient(circle at top right, rgba(125,255,156,0.08), transparent 30%),
                 radial-gradient(circle at bottom left, rgba(125,255,156,0.05), transparent 35%),
                 var(--bg);
-
             color: var(--text);
-
             font-family: "JetBrains Mono", monospace;
             line-height: 1.8;
         }
@@ -50,10 +50,7 @@
             inset: 0;
             pointer-events: none;
             opacity: 0.18;
-
-            background-image:
-                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
-
+            background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
             background-size: 100% 4px;
         }
 
@@ -63,6 +60,7 @@
             padding: 42px 24px 70px;
         }
 
+        /* ── Hero ── */
         .hero {
             border: 1px solid var(--border);
             background: linear-gradient(180deg, rgba(20,28,20,0.95), rgba(12,16,13,0.96));
@@ -110,6 +108,7 @@
             font-size: 13px;
         }
 
+        /* ── Panels ── */
         .panel {
             background: rgba(15,20,16,0.94);
             border: 1px solid var(--border);
@@ -166,6 +165,22 @@
             font-style: italic;
         }
 
+        /* ── Station info boxes ── */
+        .station-info {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        .info-box {
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            background: #0d120f;
+            font-size: 12px;
+        }
+
+        /* ── APRS Box ── */
         .aprs-box {
             border: 1px solid var(--border);
             overflow: hidden;
@@ -183,20 +198,71 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .aprs-status-indicator {
             display: inline-block;
             width: 8px;
             height: 8px;
             border-radius: 50%;
             background-color: var(--muted);
+            flex-shrink: 0;
         }
-        
+
         .aprs-status-indicator.active {
             background-color: var(--accent);
             box-shadow: 0 0 8px var(--accent);
+            animation: pulse 2s infinite;
         }
 
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 6px var(--accent); }
+            50%       { box-shadow: 0 0 14px var(--accent); }
+        }
+
+        #aprs-loading {
+            padding: 28px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        .aprs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            padding: 16px;
+        }
+
+        /* ── Leaflet map ── */
+        #aprs-map {
+            width: 100%;
+            height: 420px;
+            background: #0b100c;
+            border-top: 1px solid var(--border);
+            filter: brightness(0.82) saturate(0.65);
+        }
+
+        .leaflet-popup-content-wrapper {
+            background: #111612;
+            border: 1px solid #283328;
+            color: #d9e2d8;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 12px;
+            border-radius: 0;
+            box-shadow: none;
+            line-height: 1.7;
+        }
+
+        .leaflet-popup-tip {
+            background: #111612;
+        }
+
+        .leaflet-popup-content a {
+            color: #7dff9c;
+        }
+
+        /* ── Footer ── */
         footer {
             margin-top: 50px;
             text-align: center;
@@ -209,35 +275,7 @@
             color: var(--accent);
         }
 
-        .station-info {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 18px;
-        }
-
-        .info-box {
-            border: 1px solid var(--border);
-            padding: 10px 14px;
-            background: #0d120f;
-            font-size: 12px;
-        }
-
-        .aprs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 12px;
-            padding: 16px;
-        }
-
-        #aprs-loading {
-            padding: 24px;
-            text-align: center;
-            color: var(--muted);
-            font-size: 12px;
-            font-style: italic;
-        }
-
+        /* ── Mobile ── */
         @media (max-width: 700px) {
             .container {
                 padding: 28px 18px 50px;
@@ -247,6 +285,10 @@
             .panel {
                 padding: 20px;
             }
+
+            #aprs-map {
+                height: 300px;
+            }
         }
     </style>
 </head>
@@ -255,6 +297,7 @@
 
 <div class="container">
 
+    <!-- ── Hero ── -->
     <section class="hero">
 
         <div class="tagline">
@@ -275,11 +318,9 @@
             <div class="info-box">
                 Indicativo: <strong>PU5OEF</strong>
             </div>
-
             <div class="info-box">
                 Hobby principal: <strong>APRS</strong>
             </div>
-
             <div class="info-box">
                 Instagram: <strong>@pu5oef</strong>
             </div>
@@ -287,6 +328,7 @@
 
     </section>
 
+    <!-- ── História ── -->
     <section class="panel">
 
         <h2>História no Rádio</h2>
@@ -303,7 +345,7 @@
         </p>
 
         <div class="quote">
-            “Não faça isso, por favor! Haha”
+            "Não faça isso, por favor! Haha"
         </div>
 
         <p>
@@ -325,40 +367,34 @@
 
     </section>
 
+    <!-- ── Equipamentos + Antenas ── -->
     <div class="grid">
 
         <section class="panel">
-
             <h2>Equipamentos</h2>
-
             <div class="badge">Retevis RT3S</div>
             <div class="badge">Yaesu FT-2800</div>
             <div class="badge">Motorola SM-50</div>
             <div class="badge">TT1.4</div>
-
         </section>
 
         <section class="panel">
-
             <h2>Antenas</h2>
-
             <ul>
                 <li>Plano Terra 5/8 VHF — PY5BH / PY5TD</li>
                 <li>Plano Terra 5/8 VHF — PY5LF</li>
                 <li>Vaso de Flores — PU5MNI</li>
                 <li>Aquario móvel 1/4 VHF magnética</li>
             </ul>
-
         </section>
 
     </div>
 
+    <!-- ── Bandas + Links ── -->
     <div class="grid">
 
         <section class="panel">
-
-            <h2>Bandas & Modos</h2>
-
+            <h2>Bandas &amp; Modos</h2>
             <ul>
                 <li>EchoLink</li>
                 <li>VHF</li>
@@ -366,82 +402,77 @@
                 <li>DMR</li>
                 <li>APRS</li>
             </ul>
-
         </section>
 
         <section class="panel">
-
             <h2>Links</h2>
-
             <ul>
                 <li>
-                    <a href="https://www.instagram.com/pu5oef/" target="_blank">
-                        Instagram
-                    </a>
+                    <a href="https://www.instagram.com/pu5oef/" target="_blank">Instagram</a>
                 </li>
-
                 <li>
-                    <a href="https://www.qrz.com/db/PU5OEF" target="_blank">
-                        QRZ.com
-                    </a>
+                    <a href="https://www.qrz.com/db/PU5OEF" target="_blank">QRZ.com</a>
                 </li>
-
                 <li>
-                    <a href="https://radio.lucafchala.com" target="_blank">
-                        Portal de Rádio
-                    </a>
+                    <a href="https://radio.lucafchala.com" target="_blank">Portal de Rádio</a>
                 </li>
             </ul>
-
         </section>
 
     </div>
 
+    <!-- ── APRS Tracking ── -->
     <section class="panel">
 
-        <h2>APRS Tracking (Live API)</h2>
+        <h2>APRS Tracking</h2>
 
         <div class="aprs-box">
+
             <div class="aprs-top">
                 <span>Rastreamento de Telemetria — PU5OEF</span>
                 <span id="aprs-led" class="aprs-status-indicator" title="Status de conexão"></span>
             </div>
 
+            <!-- Loading state -->
             <div id="aprs-loading">Conectando aos servidores APRS-IS...</div>
 
-            <div class="aprs-grid" id="aprs-data" style="display: none;">
+            <!-- Telemetria em grade -->
+            <div class="aprs-grid" id="aprs-data" style="display:none;">
                 <div class="info-box">
-                    <span style="color:var(--muted); font-size: 10px; display:block;">ÚLTIMO SINAL</span>
+                    <span style="color:var(--muted); font-size:10px; display:block;">ÚLTIMO SINAL</span>
                     <strong id="aprs-time">--</strong>
                 </div>
                 <div class="info-box">
-                    <span style="color:var(--muted); font-size: 10px; display:block;">COORDENADAS (LAT, LNG)</span>
+                    <span style="color:var(--muted); font-size:10px; display:block;">COORDENADAS</span>
                     <strong id="aprs-coords">--</strong>
                 </div>
                 <div class="info-box">
-                    <span style="color:var(--muted); font-size: 10px; display:block;">VELOCIDADE</span>
-                    <strong id="aprs-speed">-- km/h</strong>
+                    <span style="color:var(--muted); font-size:10px; display:block;">VELOCIDADE</span>
+                    <strong id="aprs-speed">--</strong>
                 </div>
                 <div class="info-box">
-                    <span style="color:var(--muted); font-size: 10px; display:block;">ALTITUDE</span>
-                    <strong id="aprs-alt">-- m</strong>
+                    <span style="color:var(--muted); font-size:10px; display:block;">ALTITUDE</span>
+                    <strong id="aprs-alt">--</strong>
                 </div>
                 <div class="info-box" style="grid-column: 1 / -1;">
-                    <span style="color:var(--muted); font-size: 10px; display:block;">ROTA (PATH)</span>
+                    <span style="color:var(--muted); font-size:10px; display:block;">ROTA (PATH)</span>
                     <strong id="aprs-path" style="color:var(--accent);">--</strong>
                 </div>
                 <div class="info-box" style="grid-column: 1 / -1;">
-                    <span style="color:var(--muted); font-size: 10px; display:block;">COMENTÁRIO</span>
+                    <span style="color:var(--muted); font-size:10px; display:block;">COMENTÁRIO</span>
                     <strong id="aprs-comment">--</strong>
                 </div>
             </div>
+
+            <!-- Mapa Leaflet (aparece após dados carregarem) -->
+            <div id="aprs-map" style="display:none;"></div>
+
         </div>
 
         <p style="margin-top:14px; color:var(--muted); font-size:12px;">
-            Dados via API JSON fornecidos por
-            <a href="https://aprs.fi" target="_blank">aprs.fi</a>. 
-            <br>
-            <a href="https://aprs.fi/info/a/PU5OEF" target="_blank">Ver no mapa completo ↗</a>
+            Dados via API JSON fornecidos por <a href="https://aprs.fi" target="_blank">aprs.fi</a>.
+            &nbsp;·&nbsp;
+            <a href="https://aprs.fi/info/a/PU5OEF" target="_blank">Ver histórico completo ↗</a>
         </p>
 
     </section>
@@ -452,51 +483,112 @@
 
 </div>
 
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const WORKER_URL = "https://api-key-aprs-pu5oef.lfchala4.workers.dev";
+    document.addEventListener("DOMContentLoaded", () => {
 
-    fetch(WORKER_URL)
-      .then(res => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
-      .then(data => {
-        if (data.result === "ok" && data.found > 0) {
-          renderAPRSData(data.entries[0]);
-        } else {
-          document.getElementById("aprs-loading").innerText =
-            "Nenhum dado encontrado para PU5OEF no momento.";
-        }
-      })
-      .catch(err => {
-        console.error("Erro APRS:", err);
-        document.getElementById("aprs-loading").innerText =
-          "Erro ao buscar telemetria. Tente novamente mais tarde.";
-      });
-  });
+        // Worker Cloudflare — chave fica segura no server-side
+        const WORKER_URL = "https://api-key-aprs-pu5oef.lfchala4.workers.dev";
 
-  function renderAPRSData(entry) {
-    document.getElementById("aprs-loading").style.display = "none";
-    document.getElementById("aprs-data").style.display = "grid";
-    document.getElementById("aprs-led").classList.add("active");
+        fetch(WORKER_URL)
+            .then(res => {
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return res.json();
+            })
+            .then(data => {
+                if (data.result === "ok" && data.found > 0) {
+                    renderAPRSData(data.entries[0]);
+                } else {
+                    document.getElementById("aprs-loading").innerText =
+                        "Nenhum dado encontrado para PU5OEF no momento.";
+                }
+            })
+            .catch(err => {
+                console.error("Erro APRS:", err);
+                document.getElementById("aprs-loading").innerText =
+                    "Erro ao buscar telemetria. Tente novamente mais tarde.";
+            });
+    });
 
-    const ts   = new Date(entry.lasttime * 1000);
-    const diff = Math.round((Date.now() / 1000 - entry.lasttime) / 60);
+    function renderAPRSData(entry) {
 
-    document.getElementById("aprs-time").innerText =
-      `${ts.toLocaleString("pt-BR")} (${diff} min atrás)`;
-    document.getElementById("aprs-coords").innerText =
-      `${parseFloat(entry.lat).toFixed(5)}, ${parseFloat(entry.lng).toFixed(5)}`;
-    document.getElementById("aprs-speed").innerText =
-      entry.speed != null ? `${entry.speed} km/h` : "parado";
-    document.getElementById("aprs-alt").innerText =
-      entry.altitude != null ? `${Math.round(entry.altitude)} m` : "—";
-    document.getElementById("aprs-path").innerText =
-      entry.path || "Direto";
-    document.getElementById("aprs-comment").innerText =
-      entry.comment || "Sem comentário";
-  }
+        // Esconde loader, mostra grade
+        document.getElementById("aprs-loading").style.display = "none";
+        document.getElementById("aprs-data").style.display   = "grid";
+
+        // LED verde pulsante
+        document.getElementById("aprs-led").classList.add("active");
+
+        // Timestamp legível
+        const ts   = new Date(entry.lasttime * 1000);
+        const diff = Math.round((Date.now() / 1000 - entry.lasttime) / 60);
+        const tsStr = ts.toLocaleString("pt-BR");
+
+        // Coordenadas
+        const lat = parseFloat(entry.lat);
+        const lng = parseFloat(entry.lng);
+
+        // Popula campos de telemetria
+        document.getElementById("aprs-time").innerText =
+            `${tsStr} (${diff} min atrás)`;
+        document.getElementById("aprs-coords").innerText =
+            `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+        document.getElementById("aprs-speed").innerText =
+            entry.speed != null ? `${entry.speed} km/h` : "parado";
+        document.getElementById("aprs-alt").innerText =
+            entry.altitude != null ? `${Math.round(entry.altitude)} m` : "—";
+        document.getElementById("aprs-path").innerText =
+            entry.path    || "Direto";
+        document.getElementById("aprs-comment").innerText =
+            entry.comment || "Sem comentário";
+
+        // ── Mapa Leaflet ──
+        const mapEl = document.getElementById("aprs-map");
+        mapEl.style.display = "block";
+
+        const map = L.map("aprs-map", {
+            center: [lat, lng],
+            zoom: 13,
+            zoomControl: true,
+            attributionControl: true
+        });
+
+        // Tiles OpenStreetMap (gratuito, sem chave)
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
+            maxZoom: 19
+        }).addTo(map);
+
+        // Marcador verde estilizado com o tema da página
+        const icon = L.divIcon({
+            className: "",
+            html: `<div style="
+                width: 14px;
+                height: 14px;
+                background: #7dff9c;
+                border: 2px solid #0a0d0b;
+                border-radius: 50%;
+                box-shadow: 0 0 12px #7dff9c;
+            "></div>`,
+            iconSize:   [14, 14],
+            iconAnchor: [7, 7],
+            popupAnchor: [0, -10]
+        });
+
+        L.marker([lat, lng], { icon })
+            .addTo(map)
+            .bindPopup(`
+                <strong style="color:#7dff9c; font-size:13px;">PU5OEF</strong><br>
+                ${lat.toFixed(5)}, ${lng.toFixed(5)}<br>
+                Velocidade: ${entry.speed != null ? entry.speed + " km/h" : "parado"}<br>
+                Altitude: ${entry.altitude != null ? Math.round(entry.altitude) + " m" : "—"}<br>
+                ${tsStr}<br><br>
+                <a href="https://aprs.fi/info/a/PU5OEF" target="_blank">Ver no aprs.fi ↗</a>
+            `)
+            .openPopup();
+    }
 </script>
 
 </body>
