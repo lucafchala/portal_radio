@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    
+<link rel="icon" href="https://tucas.omg.lol/favicon.ico">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PU2XIK — Luca F. Chala</title>
+
+    <meta name="description" content="Página de radioamadorismo de Luca F. Chala (PU2XIK).">
+
+    <link rel="icon" href="https://tucas.omg.lol/favicon.ico">
+
+    <style>
+        :root {
+            --bg: #0d0c0a;
+            --panel: #151310;
+            --border: #252220;
+            --text: #e6e1d6;
+            --muted: #756d61;
+            --accent: #c08030;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: "JetBrains Mono", monospace;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            padding: 42px 24px 70px;
+        }
+
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            padding: 26px;
+            margin-bottom: 24px;
+        }
+
+        h1, h2 {
+            margin-top: 0;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .callsign {
+            color: var(--accent);
+            letter-spacing: 0.12em;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .hero {
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 8vw, 72px);
+            line-height: 0.95;
+            margin-bottom: 12px;
+        }
+
+        .tagline {
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 11px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border: 1px solid var(--border);
+            background: #100f0d;
+            color: var(--accent);
+            font-size: 11px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        footer {
+            margin-top: 40px;
+            color: var(--muted);
+            font-size: 12px;
+            text-align: center;
+        }
+
+        code {
+            color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="panel hero">
+
+        <div class="tagline">
+            Amateur Radio • RF • Digital Modes
+        </div>
+
+        <h1>
+            Luca<br>
+            <span class="callsign">PU2XIK</span>
+        </h1>
+
+        <p class="muted">
+            Radioamador baseado em São Paulo, focado em RF,
+            APRS, modos digitais, infraestrutura portátil,
+            experimentação e comunicação resiliente.
+        </p>
+
+    </div>
+
+    <div class="panel">
+
+        <h2>Sobre</h2>
+
+        <p>
+            Opero sob o indicativo <strong>PU2XIK</strong>,
+            explorando principalmente VHF/UHF, APRS,
+            rádio digital e infraestrutura portátil.
+        </p>
+
+        <p>
+            Tenho interesse em sistemas resilientes,
+            comunicação descentralizada, packet radio,
+            DMR, OpenGD77, antenas e integração entre
+            rádio e tecnologia.
+        </p>
+
+    </div>
+
+    <div class="grid">
+
+        <div class="panel">
+
+            <h2>Equipamentos</h2>
+
+            <div class="badge">UV-K6</div>
+            <div class="badge">RT3S</div>
+            <div class="badge">OpenGD77</div>
+            <div class="badge">DMR</div>
+            <div class="badge">APRS</div>
+
+        </div>
+
+        <div class="panel">
+
+            <h2>Interesses</h2>
+
+            <ul>
+                <li>APRS</li>
+                <li>Packet Radio</li>
+                <li>DMR</li>
+                <li>Infraestrutura portátil</li>
+                <li>Field operations</li>
+                <li>Antenas</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="panel">
+
+        <h2>Links</h2>
+
+        <ul>
+            <li>
+                <a href="https://www.qrz.com/db/PU2XIK" target="_blank">
+                    QRZ.com
+                </a>
+            </li>
+
+            <li>
+                <a href="https://lucafchala.com" target="_blank">
+                    lucafchala.com
+                </a>
+            </li>
+
+            <li>
+                <a href="https://radio.lucafchala.com" target="_blank">
+                    Portal de Rádio
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="panel">
+
+        <h2>Status</h2>
+
+        <p>
+            <strong>QTH:</strong> São Paulo, Brasil
+        </p>
+
+        <p>
+            <strong>Status:</strong> ativo
+        </p>
+
+        <p>
+            <strong>Indicativo:</strong> <code>PU2XIK</code>
+        </p>
+
+    </div>
+
+    <footer>
+        radio.lucafchala.com/pu2xik
+    </footer>
+
+</div>
+
+</body>
+</html>
