@@ -47,7 +47,7 @@
         "sameAs": [
           "https://www.instagram.com/pu5oef/",
           "https://www.qrz.com/db/PU5OEF",
-          "https://aprs.fi/info/a/PU5OEF"
+          "https://aprs.fi/info/a/PU5OEF-1"
         ],
         "address": {
           "@type": "PostalAddress",
@@ -415,7 +415,7 @@
 
         <div class="aprs-box">
             <div class="aprs-top">
-                <span>Rastreamento de Telemetria — PU5OEF</span>
+                <span>Rastreamento de Telemetria — PU5OEF-1</span>
                 <span id="aprs-led" class="aprs-status-indicator" title="Status de conexão"></span>
             </div>
 
@@ -547,12 +547,12 @@
         L.marker([lat, lng], { icon })
             .addTo(map)
             .bindPopup(`
-                <strong style="color:#7dff9c;font-size:13px;">PU5OEF</strong><br>
+                <strong style="color:#7dff9c;font-size:13px;">PU5OEF-1</strong><br>
                 ${lat.toFixed(5)}, ${lng.toFixed(5)}<br>
                 Velocidade: ${entry.speed != null ? entry.speed + " km/h" : "parado"}<br>
                 Altitude: ${entry.altitude != null ? Math.round(entry.altitude) + " m" : "—"}<br>
                 ${tsStr}<br><br>
-                <a href="https://aprs.fi/info/a/PU5OEF" target="_blank">Ver no aprs.fi ↗</a>
+                <a href="https://aprs.fi/info/a/PU5OEF-1" target="_blank">Ver no aprs.fi ↗</a>
             `)
             .openPopup();
     }
