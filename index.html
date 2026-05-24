@@ -1,47 +1,66 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<link rel="icon" href="https://tucas.omg.lol/favicon.ico">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>radio.lucafchala.com</title>
+
+    <!-- ── SEO Básico ── -->
+    <title>radio.lucafchala.com — Portal Comunitário de Radioamadorismo</title>
+    <meta name="description" content="Portal estático dedicado à comunidade radioamadora. APRS, modos digitais, RF experimental e páginas de operadores PY/PU. Hospedado com Cloudflare Pages.">
+    <meta name="keywords" content="radioamadorismo, APRS, VHF, UHF, DMR, rádio digital, PU2XIK, PU5OEF, Brasil, ham radio">
+    <meta name="author" content="Luca F. Chala — PU2XIK">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://radio.lucafchala.com/">
+
+    <!-- ── Open Graph (WhatsApp, Facebook, Discord, Telegram) ── -->
+    <meta property="og:type"        content="website">
+    <meta property="og:url"         content="https://radio.lucafchala.com/">
+    <meta property="og:title"       content="radio.lucafchala.com — Portal Comunitário de Radioamadorismo">
+    <meta property="og:description" content="Portal estático dedicado à comunidade radioamadora. APRS, modos digitais, RF experimental e páginas de operadores PY/PU.">
+    <meta property="og:image"       content="https://radio.lucafchala.com/pu5oef/og-image.png">
+    <meta property="og:image:width"  content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale"      content="pt_BR">
+    <meta property="og:site_name"   content="Portal de Rádio — lucafchala.com">
+
+    <!-- ── Twitter / X Card ── -->
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:url"         content="https://radio.lucafchala.com/">
+    <meta name="twitter:title"       content="radio.lucafchala.com — Portal Comunitário de Radioamadorismo">
+    <meta name="twitter:description" content="Portal estático dedicado à comunidade radioamadora. APRS, modos digitais, RF experimental e páginas de operadores PY/PU.">
+    <meta name="twitter:image"       content="https://radio.lucafchala.com/pu5oef/og-image.png">
+
+    <!-- ── Schema.org (Google) ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "radio.lucafchala.com",
+      "url": "https://radio.lucafchala.com/",
+      "description": "Portal comunitário dedicado ao radioamadorismo, APRS, RF e modos digitais.",
+      "publisher": {
+        "@type": "Person",
+        "name": "Luca F. Chala",
+        "identifier": "PU2XIK",
+        "url": "https://lucafchala.com"
+      }
+    }
+    </script>
+
+    <link rel="icon" href="https://tucas.omg.lol/favicon.ico">
+
+    <link rel="stylesheet" href="/style.css">
+
     <style>
-        :root {
-            --bg: #0b0f0c;
-            --panel: #101612;
-            --border: #2d3c32;
-            --text: #d6e0d5;
-            --accent: #7dff9c;
-            --muted: #8a968d;
-        }
-
-        * { box-sizing: border-box; }
-
         body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--text);
             font-family: Consolas, Monaco, monospace;
             line-height: 1.6;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 30px 20px;
-        }
-
-        .panel {
-            background: var(--panel);
-            border: 1px solid var(--border);
-            padding: 25px;
-            margin-bottom: 25px;
-        }
-
-        h1, h2 {
-            margin-top: 0;
-            color: var(--accent);
+        h1 {
+            font-size: clamp(1.1rem, 5.5vw, 2rem);
+            overflow-wrap: break-word;
         }
 
         .subtitle {
@@ -66,8 +85,6 @@
         }
 
         .card a {
-            color: var(--accent);
-            text-decoration: none;
             font-size: 1.05rem;
         }
 
@@ -76,28 +93,44 @@
             margin-top: 6px;
         }
 
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            color: var(--muted);
-            font-size: 0.9rem;
+        .donation-panel {
+            border-color: var(--accent);
         }
 
-        code {
-            color: var(--accent);
-        }
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
+        .donation-grid {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 20px;
+            align-items: start;
+            margin-top: 15px;
         }
 
-        .contact a {
-            color: var(--accent);
+        @media (max-width: 600px) {
+            .donation-grid { grid-template-columns: 1fr; }
         }
+
+        .pix-key {
+            display: block;
+            background: #0d120f;
+            border: 1px solid var(--border);
+            padding: 10px;
+            font-size: 0.8rem;
+            word-break: break-all;
+            margin: 8px 0;
+        }
+
+        .copy-btn {
+            background: none;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-family: inherit;
+            font-size: 0.85rem;
+            padding: 5px 12px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .copy-btn:hover { background: var(--accent); color: var(--bg); }
     </style>
 </head>
 
@@ -139,6 +172,26 @@
 
     </div>
 
+    <div class="panel donation-panel">
+
+        <h2>Apoie o Portal</h2>
+
+        <p>Se este portal foi útil pra você, considere fazer uma doação via PIX.</p>
+
+        <div class="donation-grid">
+            <div>
+                <p style="color: var(--muted)">Titular: LUCA F CHALA</p>
+                <p>Chave PIX (aleatória):</p>
+                <code class="pix-key">eb754dfc-2463-468c-8187-1a1c6f448937</code>
+                <button class="copy-btn" onclick="copyPix()">Copiar chave</button>
+            </div>
+            <div>
+                <img src="/pix-qr.jpg" alt="QR Code PIX" style="width:160px;height:160px;display:block;">
+            </div>
+        </div>
+
+    </div>
+
     <div class="panel">
 
         <h2>Páginas da Comunidade</h2>
@@ -165,7 +218,7 @@
             </div>
                     <div class="card">
                 <a href="/pu5oef/">PU5OEF</a>
-                        
+
                 <div class="desc">
                     Edivaldo Filho
                 </div>
@@ -228,5 +281,13 @@
 
 </div>
 
+<script>
+    function copyPix() {
+        navigator.clipboard.writeText('eb754dfc-2463-468c-8187-1a1c6f448937');
+        var btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copiado!';
+        setTimeout(function() { btn.textContent = 'Copiar chave'; }, 2000);
+    }
+</script>
 </body>
 </html>

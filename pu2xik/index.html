@@ -5,24 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>PU2XIK — Luca F. Chala</title>
+    <!-- ── SEO Básico ── -->
+    <title>PU2XIK — Luca F. Chala | Radioamador São Paulo</title>
+    <meta name="description" content="Página de Luca F. Chala (PU2XIK), radioamador de São Paulo com foco em APRS, rádio digital, DMR, OpenGD77 e infraestrutura portátil.">
+    <meta name="keywords" content="PU2XIK, radioamador, APRS, DMR, OpenGD77, packet radio, VHF, São Paulo, Brasil, ham radio">
+    <meta name="author" content="Luca F. Chala — PU2XIK">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://radio.lucafchala.com/pu2xik/">
 
-    <meta name="description" content="Página de radioamadorismo de Luca F. Chala (PU2XIK).">
+    <!-- ── Open Graph (WhatsApp, Facebook, Discord, Telegram) ── -->
+    <meta property="og:type"        content="website">
+    <meta property="og:url"         content="https://radio.lucafchala.com/pu2xik/">
+    <meta property="og:title"       content="PU2XIK — Luca F. Chala | Radioamador São Paulo">
+    <meta property="og:description" content="Radioamador de São Paulo com foco em APRS, rádio digital, DMR, OpenGD77 e infraestrutura portátil. RF experimental e field operations.">
+    <meta property="og:locale"      content="pt_BR">
+    <meta property="og:site_name"   content="Portal de Rádio — lucafchala.com">
+
+    <!-- ── Twitter / X Card ── -->
+    <meta name="twitter:card"        content="summary">
+    <meta name="twitter:url"         content="https://radio.lucafchala.com/pu2xik/">
+    <meta name="twitter:title"       content="PU2XIK — Luca F. Chala | Radioamador São Paulo">
+    <meta name="twitter:description" content="Radioamador de São Paulo com foco em APRS, rádio digital, DMR, OpenGD77 e infraestrutura portátil.">
+
+    <!-- ── Schema.org (Google) ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "name": "PU2XIK — Luca F. Chala",
+      "url": "https://radio.lucafchala.com/pu2xik/",
+      "description": "Página de radioamadorismo de Luca F. Chala (PU2XIK), operador de São Paulo.",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Luca F. Chala",
+        "identifier": "PU2XIK",
+        "url": "https://radio.lucafchala.com/pu2xik/",
+        "sameAs": [
+          "https://www.qrz.com/db/PU2XIK",
+          "https://lucafchala.com"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "São Paulo",
+          "addressCountry": "BR"
+        }
+      }
+    }
+    </script>
 
     <link rel="icon" href="https://tucas.omg.lol/favicon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <style>
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    <link rel="stylesheet" href="../style.css">
 
+    <style>
+        /* Tema âmbar — sobrescreve variáveis do style.css compartilhado */
         :root {
             --bg: #0d0c0a;
             --border: #252220;
@@ -31,6 +71,11 @@
             --accent: #c08030;
             --accent-dim: #6a4818;
             --panel: #141210;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
         }
 
         html {
@@ -45,7 +90,6 @@
         body {
             min-height: 100vh;
             max-width: 760px;
-            margin: 0 auto;
             padding: 48px 32px 72px;
         }
 
@@ -138,8 +182,6 @@
         }
 
         .panel {
-            border: 1px solid var(--border);
-            background: var(--panel);
             padding: 22px;
         }
 
@@ -154,31 +196,22 @@
         }
 
         .badge {
-            display: inline-block;
             padding: 5px 10px;
-            border: 1px solid var(--border);
-            color: var(--accent);
-            font-size: 11px;
-            margin-right: 8px;
-            margin-bottom: 8px;
         }
 
         ul {
             list-style: none;
-        }
-
-        li {
-            margin-bottom: 8px;
+            padding-left: 0;
         }
 
         a {
             color: var(--text);
-            text-decoration: none;
             transition: color 0.15s;
         }
 
         a:hover {
             color: var(--accent);
+            text-decoration: none;
         }
 
         .arr {
@@ -197,31 +230,17 @@
             margin-top: 54px;
             padding-top: 20px;
             border-top: 1px solid var(--border);
-            color: var(--muted);
             font-size: 11px;
-            text-align: center;
         }
 
         @keyframes rise {
-            from {
-                opacity: 0;
-                transform: translateY(18px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 680px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-            body {
-                padding: 34px 22px 60px;
-            }
+            .grid { grid-template-columns: 1fr; }
+            body  { padding: 34px 22px 60px; }
         }
     </style>
 </head>

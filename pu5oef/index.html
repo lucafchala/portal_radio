@@ -67,28 +67,24 @@
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
+    <link rel="stylesheet" href="../style.css">
+
     <style>
+        /* Sobrescreve variáveis com os valores ligeiramente diferentes desta página */
         :root {
             --bg: #0a0d0b;
             --panel: #111612;
             --border: #283328;
             --text: #d9e2d8;
             --muted: #728072;
-            --accent: #7dff9c;
             --accent-dim: #3f7d4d;
         }
 
-        * {
-            box-sizing: border-box;
-        }
-
         body {
-            margin: 0;
             background:
                 radial-gradient(circle at top right, rgba(125,255,156,0.08), transparent 30%),
                 radial-gradient(circle at bottom left, rgba(125,255,156,0.05), transparent 35%),
                 var(--bg);
-            color: var(--text);
             font-family: "JetBrains Mono", monospace;
             line-height: 1.8;
         }
@@ -180,24 +176,9 @@
         }
 
         .badge {
-            display: inline-block;
-            border: 1px solid var(--border);
             padding: 7px 12px;
-            margin-right: 8px;
             margin-bottom: 10px;
-            background: #0d120f;
-            color: var(--accent);
-            font-size: 12px;
         }
-
-        ul { padding-left: 18px; }
-        li { margin-bottom: 8px; }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-        a:hover { text-decoration: underline; }
 
         .quote {
             padding-left: 18px;
@@ -306,8 +287,6 @@
             font-size: 11px;
             letter-spacing: 0.08em;
         }
-
-        code { color: var(--accent); }
 
         /* ── Mobile ── */
         @media (max-width: 700px) {
