@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apoiar o Portal — radio.lucafchala.com</title>
     <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#0A0B0D">
     <link rel="icon" href="https://tucas.omg.lol/favicon.ico">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="style.css">
@@ -15,36 +16,48 @@
 
 <div class="container">
 
-    <div class="panel">
-        <h1>Obrigado pelo apoio ♥</h1>
+    <!-- ── Topbar ── -->
+    <nav class="topbar">
+        <a class="brand" href="/">
+            <span class="brand-dot"></span>
+            <span class="brand-text">radio.<em>lucafchala</em>.com</span>
+        </a>
+        <a class="back-link" href="/">← Voltar</a>
+    </nav>
+
+    <!-- ── Hero ── -->
+    <header class="hero">
+        <div class="section-num"><span>01</span> Apoiar o portal</div>
+        <h1>Obrigado <span class="heart">♥</span></h1>
         <p>
             Este portal é mantido de forma voluntária, sem anúncios e sem paywall.
-            Qualquer contribuição ajuda a manter a infraestrutura no ar e a comunidade ativa.
+            Qualquer contribuição ajuda a manter a infraestrutura no ar
+            e a comunidade ativa.
         </p>
-        <p style="color: var(--muted)">
-            <a href="/">← Voltar ao portal</a>
-        </p>
-    </div>
+    </header>
 
-    <div class="panel">
-        <h2>Formas de pagamento</h2>
+    <!-- ── Métodos ── -->
+    <section>
+        <div class="section-label">Formas de pagamento</div>
+
         <div class="methods-list">
 
             <div class="method-card" onclick="openPix()">
-                <div>
+                <div class="method-icon">PIX</div>
+                <div class="method-body">
                     <div class="method-name">PIX</div>
                     <div class="method-desc">Transferência instantânea · chave aleatória</div>
                 </div>
-                <span style="margin-left:auto; color:var(--muted)">→</span>
+                <span class="method-arrow">↗</span>
             </div>
 
             <!-- futuras formas de pagamento aqui -->
 
         </div>
-    </div>
+    </section>
 
     <footer>
-        radio.lucafchala.com • portal comunitário de radioamadorismo
+        radio.lucafchala.com · portal comunitário
     </footer>
 
 </div>
@@ -53,9 +66,9 @@
 <div id="pix-modal" class="modal-overlay" style="display:none">
     <div class="modal-box">
         <h2>Pagamento via PIX</h2>
+        <div class="modal-titular">Titular · Luca F Chala</div>
         <img src="/pix-qr.jpg" alt="QR Code PIX">
-        <p style="color: var(--muted); margin: 4px 0 0; font-size: 0.85rem">Titular: LUCA F CHALA</p>
-        <p style="margin: 12px 0 4px; font-size: 0.85rem">Chave PIX (aleatória):</p>
+        <div class="modal-label">Chave PIX (aleatória)</div>
         <code class="pix-key">eb754dfc-2463-468c-8187-1a1c6f448937</code>
         <div class="modal-actions">
             <button class="copy-btn" onclick="copyPix()">Copiar chave</button>
