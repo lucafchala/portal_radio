@@ -11,6 +11,7 @@
     <meta name="keywords" content="radioamadorismo, APRS, VHF, UHF, DMR, rádio digital, PU2XIK, PU5OEF, Brasil, ham radio">
     <meta name="author" content="Luca F. Chala — PU2XIK">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#F5F4ED">
     <link rel="canonical" href="https://radio.lucafchala.com/">
 
     <!-- ── Open Graph (WhatsApp, Facebook, Discord, Telegram) ── -->
@@ -58,92 +59,115 @@
 
 <div class="container">
 
+    <!-- ── Topbar ── -->
+    <nav class="topbar">
+        <a class="topbar-brand" href="/">
+            <span class="topbar-brand-mark"></span>
+            <span class="topbar-brand-text">radio.<em>lucafchala</em>.com</span>
+        </a>
+        <div class="topbar-nav">
+            <a href="#operadores">Operadores</a>
+            <a href="https://github.com/lucafchala/portal_radio" target="_blank" rel="noopener">GitHub</a>
+            <a href="/doacoes/">Apoiar</a>
+        </div>
+    </nav>
+
     <!-- ── Hero ── -->
     <header class="hero">
-        <div class="hero-eyebrow">
-            APRS <span>·</span> VHF <span>·</span> UHF <span>·</span> DMR <span>·</span> RF
-        </div>
+        <div class="hero-eyebrow">Portal comunitário · radioamadorismo</div>
         <h1>
-            radio.<em>lucafchala</em>.com
+            Um espaço simples<br>
+            para a <em>comunidade do rádio</em>.
         </h1>
         <p class="hero-sub">
-            Portal comunitário dedicado ao radioamadorismo,
-            experimentação, APRS, RF e modos digitais.
-            HTML estático, rápido e permanente.
+            APRS, modos digitais, RF experimental e páginas de operadores PY/PU.
+            HTML estático — rápido, permanente e independente.
         </p>
         <div class="hero-actions">
-            <a class="btn-primary" href="/doacoes/">♥ Apoiar o portal</a>
-            <a class="btn-ghost" href="https://github.com/lucafchala/portal_radio" target="_blank" rel="noopener">
-                → GitHub
+            <a class="btn-primary" href="#operadores">
+                Ver operadores
+                <span>→</span>
+            </a>
+            <a class="btn-secondary" href="/doacoes/">
+                ♥ Apoiar o portal
             </a>
         </div>
     </header>
 
-    <div class="rule">Operadores</div>
-
-    <!-- ── Operator grid ── -->
-    <div class="section-label">Páginas da Comunidade</div>
-    <div class="op-grid">
-
-        <a class="op-card" href="/pu2xik/">
-            <div class="op-callsign">PU2XIK</div>
-            <div class="op-name">Luca F. Chala</div>
-            <span class="arr">↗</span>
-        </a>
-
-        <a class="op-card" href="/pu5oef/">
-            <div class="op-callsign">PU5OEF</div>
-            <div class="op-name">Edivaldo Filho</div>
-            <span class="arr">↗</span>
-        </a>
-
-        <a class="op-card" href="/pu2xyz/">
-            <div class="op-callsign">PU2XYZ</div>
-            <div class="op-name">Página exemplo</div>
-            <span class="arr">↗</span>
-        </a>
-
-    </div>
-
-    <!-- ── Info row ── -->
-    <div class="info-row">
-
-        <div class="panel">
-            <h2>Sobre o Portal</h2>
-            <p>Espaço simples e permanente para a comunidade radioamadora.</p>
-            <p>Infraestrutura em HTML estático — confiável, rápido, independente.</p>
-            <p>Hospedado com Cloudflare Pages, HTTPS e CDN global.</p>
+    <!-- ── Operadores ── -->
+    <section class="section" id="operadores">
+        <div class="section-head">
+            <h2 class="section-title">Operadores</h2>
+            <span class="section-meta">3 páginas ativas</span>
         </div>
 
-        <div class="panel">
-            <h2>Contato</h2>
-            <ul>
-                <li>
-                    <span>Site</span>
-                    <a href="https://lucafchala.com" target="_blank" rel="noopener">lucafchala.com</a>
-                </li>
-                <li>
-                    <span>Instagram</span>
-                    <a href="https://lucafchala.com/instagram" target="_blank" rel="noopener">@lucafchala</a>
-                </li>
-                <li>
-                    <span>Email</span>
-                    <a href="mailto:pagina.radio@lucafchala.com">pagina.radio@…</a>
-                </li>
-            </ul>
+        <div class="op-grid">
+            <a class="op-card" href="/pu2xik/">
+                <div class="op-callsign">PU2XIK</div>
+                <div class="op-name">Luca F. Chala — São Paulo, BR</div>
+                <span class="op-arrow">↗</span>
+            </a>
+
+            <a class="op-card" href="/pu5oef/">
+                <div class="op-callsign">PU5OEF</div>
+                <div class="op-name">Edivaldo Filho — Paraná, BR</div>
+                <span class="op-arrow">↗</span>
+            </a>
+
+            <a class="op-card" href="/pu2xyz/">
+                <div class="op-callsign">PU2XYZ</div>
+                <div class="op-name">Página exemplo de operador</div>
+                <span class="op-arrow">↗</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ── Info ── -->
+    <section class="section">
+        <div class="section-head">
+            <h2 class="section-title">Sobre o portal</h2>
         </div>
 
-        <div class="panel">
-            <h2>Participe</h2>
-            <p>Cada operador pode ter sua própria página:</p>
-            <p><code>radio.lucafchala.com/pu2xyz</code></p>
-            <p>Basta enviar os arquivos HTML, imagens ou documentos.</p>
-        </div>
+        <div class="panel-row">
 
-    </div>
+            <div class="panel">
+                <h2>Filosofia</h2>
+                <p>Espaço simples, rápido e permanente para a comunidade radioamadora.</p>
+                <p>HTML estático — confiável, leve e independente de frameworks.</p>
+                <p>Hospedado com Cloudflare Pages, HTTPS e CDN global.</p>
+            </div>
+
+            <div class="panel">
+                <h2>Contato</h2>
+                <ul>
+                    <li>
+                        <span>Site</span>
+                        <a href="https://lucafchala.com" target="_blank" rel="noopener">lucafchala.com</a>
+                    </li>
+                    <li>
+                        <span>Instagram</span>
+                        <a href="https://lucafchala.com/instagram" target="_blank" rel="noopener">@lucafchala</a>
+                    </li>
+                    <li>
+                        <span>Email</span>
+                        <a href="mailto:pagina.radio@lucafchala.com">pagina.radio@…</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="panel">
+                <h2>Participe</h2>
+                <p>Cada operador pode ter sua própria página em:</p>
+                <p><code>radio.lucafchala.com/pu2xyz</code></p>
+                <p>Envie HTML, imagens ou documentos e adicionamos ao portal.</p>
+            </div>
+
+        </div>
+    </section>
 
     <footer>
-        radio.lucafchala.com · portal comunitário de radioamadorismo
+        radio.lucafchala.com · portal comunitário de radioamadorismo<br>
+        <a href="https://github.com/lucafchala/portal_radio" target="_blank" rel="noopener">código-fonte no GitHub</a>
     </footer>
 
 </div>
