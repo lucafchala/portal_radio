@@ -1,42 +1,139 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
+<!--
+    ╔══════════════════════════════════════════════════════════════╗
+    ║  TEMPLATE DE PÁGINA — radio.lucafchala.com                  ║
+    ║  Copie este arquivo para uma nova pasta com seu indicativo  ║
+    ║  e substitua todos os valores marcados com [ALTERE AQUI].   ║
+    ╚══════════════════════════════════════════════════════════════╝
+-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PU2XYZ</title>
+
+    <!-- ── SEO Básico ── -->
+    <!-- [ALTERE AQUI] Substitua PU2XYZ pelo seu indicativo e complete a descrição -->
+    <title>PU2XYZ — Operador Exemplo | Radioamador Brasil</title>
+    <meta name="description" content="Página de PU2XYZ, radioamador com interesse em APRS, modos digitais e VHF/UHF.">
+    <meta name="keywords" content="PU2XYZ, radioamador, APRS, VHF, UHF, Brasil, ham radio">
+    <meta name="author" content="PU2XYZ"> <!-- [ALTERE AQUI] -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://radio.lucafchala.com/pu2xyz/"> <!-- [ALTERE AQUI] -->
+
+    <!-- ── Open Graph ── -->
+    <!-- Esses dados controlam como o link aparece no WhatsApp, Discord, etc. -->
+    <!-- [ALTERE AQUI] todos os campos abaixo -->
+    <meta property="og:type"        content="website">
+    <meta property="og:url"         content="https://radio.lucafchala.com/pu2xyz/">
+    <meta property="og:title"       content="PU2XYZ — Operador Exemplo | Radioamador Brasil">
+    <meta property="og:description" content="Radioamador com interesse em APRS, modos digitais e VHF/UHF.">
+    <meta property="og:locale"      content="pt_BR">
+    <meta property="og:site_name"   content="Portal de Rádio — lucafchala.com">
+    <!-- Opcional: adicione og:image apontando para uma imagem sua (1200x630px) -->
+    <!-- <meta property="og:image" content="https://radio.lucafchala.com/pu2xyz/og-image.png"> -->
+
+    <!-- ── Twitter / X Card ── -->
+    <meta name="twitter:card"        content="summary">
+    <meta name="twitter:title"       content="PU2XYZ — Operador Exemplo">
+    <meta name="twitter:description" content="Radioamador com interesse em APRS, modos digitais e VHF/UHF.">
+
+    <!-- ── Schema.org (Google) ── -->
+    <!-- [ALTERE AQUI] Substitua os dados abaixo pelos seus -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "name": "PU2XYZ — Operador Exemplo",
+      "url": "https://radio.lucafchala.com/pu2xyz/",
+      "description": "Página de radioamadorismo de PU2XYZ.",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Seu Nome Aqui",
+        "identifier": "PU2XYZ",
+        "url": "https://radio.lucafchala.com/pu2xyz/",
+        "sameAs": [
+          "https://www.qrz.com/db/PU2XYZ"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "São Paulo",
+          "addressCountry": "BR"
+        }
+      }
+    }
+    </script>
+
+    <link rel="icon" href="https://tucas.omg.lol/favicon.ico">
+
+    <!-- CSS compartilhado do portal (variáveis, reset, componentes base) -->
+    <link rel="stylesheet" href="../style.css">
 
     <style>
+        /* [ALTERE AQUI] Troque --accent pela cor que preferir.
+           Verde padrão (#7dff9c) já vem do style.css.
+           Exemplos: #c08030 (âmbar), #5fa8ff (azul), #ff7d9c (rosa) */
+
         body {
-            margin: 0;
-            background: #0b0f0c;
-            color: #d6e0d5;
-            font-family: Consolas, monospace;
+            font-family: Consolas, Monaco, monospace;
             line-height: 1.6;
         }
 
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 30px 20px;
-        }
-
-        .panel {
-            background: #101612;
-            border: 1px solid #2d3c32;
-            padding: 25px;
+        /* Hero — seção de cabeçalho com callsign em destaque */
+        .hero {
+            border: 1px solid var(--border);
+            background: var(--panel);
+            padding: 34px;
             margin-bottom: 25px;
         }
 
-        h1, h2 {
-            color: #7dff9c;
+        .hero h1 {
+            font-size: clamp(40px, 10vw, 72px);
+            line-height: 0.95;
+            margin-bottom: 16px;
         }
 
-        a {
-            color: #7dff9c;
+        .callsign {
+            color: var(--accent);
         }
 
-        .muted {
-            color: #8a968d;
+        .hero-sub {
+            color: var(--muted);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Grade de 2 colunas para equipamentos + bandas */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        /* Status — indicadores rápidos */
+        .status-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .status-item {
+            border: 1px solid var(--border);
+            padding: 7px 12px;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .status-item strong {
+            color: var(--text);
+        }
+
+        @media (max-width: 600px) {
+            .hero { padding: 22px; }
         }
     </style>
 </head>
@@ -45,41 +142,88 @@
 
 <div class="container">
 
-    <div class="panel">
-        <h1>PU2XYZ</h1>
+    <!-- ── Hero ── -->
+    <!-- [ALTERE AQUI] Coloque seu nome e indicativo -->
+    <div class="hero">
+        <h1>
+            Seu Nome<br>
+            <span class="callsign">PU2XYZ</span>
+        </h1>
+        <p class="hero-sub">APRS · VHF · UHF · Modos Digitais</p>
+        <!-- [ALTERE AQUI] Troque pelas bandas/modos que você opera -->
 
-        <div class="muted">
-            Página exemplo hospedada em radio.lucafchala.com
+        <div class="status-row">
+            <div class="status-item">QTH: <strong>Sua Cidade, UF</strong></div>
+            <div class="status-item">Status: <strong>ativo</strong></div>
+            <div class="status-item">Indicativo: <strong>PU2XYZ</strong></div>
         </div>
     </div>
 
+    <!-- ── Sobre ── -->
+    <!-- [ALTERE AQUI] Escreva um parágrafo sobre você e sua trajetória no rádio -->
     <div class="panel">
         <h2>Sobre</h2>
-
         <p>
-            Operador focado em APRS, VHF/UHF, modos digitais
-            e experimentação com RF.
+            Opero sob o indicativo <strong>PU2XYZ</strong> com foco em APRS,
+            modos digitais e operação em VHF/UHF. [Escreva aqui um pouco sobre
+            sua trajetória no radioamadorismo, como começou, o que gosta de fazer.]
         </p>
     </div>
 
-    <div class="panel">
-        <h2>Equipamentos</h2>
+    <!-- ── Equipamentos + Bandas ── -->
+    <div class="grid">
 
-        <ul>
-            <li>UV-K6</li>
-            <li>RT3S + OpenGD77</li>
-            <li>Antena dual-band</li>
-        </ul>
+        <!-- [ALTERE AQUI] Liste seus equipamentos como badges -->
+        <div class="panel">
+            <h2>Equipamentos</h2>
+            <span class="badge">UV-K6</span>
+            <span class="badge">RT3S</span>
+            <span class="badge">OpenGD77</span>
+            <!-- Adicione ou remova badges conforme seu equipamento -->
+        </div>
+
+        <!-- [ALTERE AQUI] Liste as bandas e modos que você opera -->
+        <div class="panel">
+            <h2>Bandas &amp; Modos</h2>
+            <ul>
+                <li>VHF / UHF</li>
+                <li>APRS</li>
+                <li>DMR</li>
+                <li>EchoLink</li>
+                <!-- Adicione ou remova conforme necessário -->
+            </ul>
+        </div>
+
     </div>
 
+    <!-- ── Links ── -->
+    <!-- [ALTERE AQUI] Adicione seus links externos -->
     <div class="panel">
         <h2>Links</h2>
-
         <ul>
-            <li><a href="/">Voltar ao portal principal</a></li>
-            <li><a href="https://lucafchala.com">lucafchala.com</a></li>
+            <li>
+                <a href="https://www.qrz.com/db/PU2XYZ" target="_blank" rel="noopener">
+                    → QRZ.com
+                </a>
+            </li>
+            <li>
+                <a href="https://aprs.fi/info/a/PU2XYZ" target="_blank" rel="noopener">
+                    → APRS.fi
+                </a>
+            </li>
+            <li>
+                <a href="https://radio.lucafchala.com" target="_blank" rel="noopener">
+                    → Portal de Rádio
+                </a>
+            </li>
+            <!-- Adicione outros links: Instagram, site pessoal, etc. -->
         </ul>
     </div>
+
+    <footer>
+        radio.lucafchala.com/pu2xyz
+        <!-- [ALTERE AQUI] Troque pu2xyz pelo seu indicativo -->
+    </footer>
 
 </div>
 
