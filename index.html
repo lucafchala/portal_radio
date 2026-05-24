@@ -192,7 +192,7 @@
                 <button class="copy-btn" onclick="copyPix()">Copiar chave</button>
             </div>
             <div>
-                <canvas id="pix-qr"></canvas>
+                <img src="/pix-qr.jpg" alt="QR Code PIX" style="width:160px;height:160px;display:block;">
             </div>
         </div>
 
@@ -287,13 +287,7 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 <script>
-    QRCode.toCanvas(document.getElementById('pix-qr'),
-        '00020101021126580014br.gov.bcb.pix0136eb754dfc-2463-468c-8187-1a1c6f4489375204000053039865802BR5912LUCA F CHALA6009SAO PAULO62070503***6304E68D',
-        { width: 160, color: { dark: '#7dff9c', light: '#101612' } }
-    );
-
     function copyPix() {
         navigator.clipboard.writeText('eb754dfc-2463-468c-8187-1a1c6f448937');
         var btn = document.querySelector('.copy-btn');
