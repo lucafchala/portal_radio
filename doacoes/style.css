@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* ── Carrier Wave palette ── */
 :root {
-    --bg: #0A0B0D;
-    --bg-2: #0F1014;
-    --surface: #14161C;
-    --border: #1E2128;
-    --border-strong: #2A2E37;
-    --text: #EDE7D6;
-    --muted: #6A707A;
-    --muted-2: #4A4F58;
-    --accent: #F2A53A;
-    --accent-dim: #B07628;
-    --accent-soft: rgba(242, 165, 58, 0.08);
+    --bg:           #1F1E1B;
+    --bg-2:         #25241F;
+    --surface:      #2A2825;
+    --surface-2:    #34322D;
+    --border:       #3A3833;
+    --border-strong:#4A4842;
+    --text:         #F0EBE0;
+    --muted:        #A09B91;
+    --muted-2:      #7A7670;
+    --accent:       #D97757;
+    --accent-hover: #C96442;
+    --accent-soft:  rgba(217, 119, 87, 0.12);
 }
 
 * { box-sizing: border-box; }
@@ -35,19 +35,8 @@ body::before {
     inset: 0;
     pointer-events: none;
     background:
-        radial-gradient(ellipse 80% 50% at 80% 0%, rgba(242, 165, 58, 0.06), transparent 60%),
-        radial-gradient(ellipse 60% 40% at 0% 100%, rgba(242, 165, 58, 0.03), transparent 60%);
-    z-index: 0;
-}
-
-body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.04;
-    background-image: linear-gradient(rgba(255,255,255,1) 1px, transparent 1px);
-    background-size: 100% 3px;
+        radial-gradient(ellipse 70% 50% at 85% 0%, rgba(217, 119, 87, 0.08), transparent 60%),
+        radial-gradient(ellipse 50% 40% at 0% 100%, rgba(217, 119, 87, 0.04), transparent 60%);
     z-index: 0;
 }
 
@@ -67,47 +56,46 @@ a:hover { text-decoration: none; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 28px 0;
+    padding: 24px 0;
     font-size: 13px;
+    border-bottom: 1px solid var(--border);
 }
 
 .brand {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     color: var(--text);
-    font-family: "JetBrains Mono", monospace;
-    font-size: 12px;
-    letter-spacing: 0.04em;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.01em;
 }
 
 .brand-dot {
-    width: 7px;
-    height: 7px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background: var(--accent);
-    box-shadow: 0 0 14px var(--accent), 0 0 0 4px rgba(242, 165, 58, 0.12);
-    animation: blink 2.6s ease-in-out infinite;
+    box-shadow: 0 0 0 4px var(--accent-soft);
+    flex-shrink: 0;
+    animation: pulse 2.4s ease-in-out infinite;
 }
 
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.35; }
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
 }
 
-.brand-text { color: var(--muted); }
-.brand-text em { color: var(--text); font-style: normal; }
+.brand-text { color: var(--text); }
+.brand-text em { color: var(--accent); font-style: normal; }
 
 .back-link {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-size: 13.5px;
     color: var(--muted);
     transition: color 0.15s;
 }
 
-.back-link:hover { color: var(--accent); }
+.back-link:hover { color: var(--text); }
 
 /* ── Hero ── */
 .hero {
@@ -118,34 +106,20 @@ a:hover { text-decoration: none; }
 }
 
 .section-num {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    color: var(--muted);
+    font-size: 12px;
+    color: var(--accent);
     margin-bottom: 28px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
+    letter-spacing: 0.02em;
 }
-
-.section-num::after {
-    content: '';
-    flex: 1;
-    max-width: 80px;
-    height: 1px;
-    background: var(--border);
-}
-
-.section-num span { color: var(--accent); }
 
 .hero h1 {
-    font-family: "Instrument Serif", Georgia, serif;
+    font-family: "Fraunces", Georgia, serif;
     font-size: clamp(44px, 7vw, 76px);
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1;
     letter-spacing: -0.02em;
     color: var(--text);
-    margin: 0 0 28px;
+    margin: 0 0 24px;
 }
 
 .hero h1 .heart {
@@ -154,25 +128,25 @@ a:hover { text-decoration: none; }
 }
 
 .hero p {
-    font-family: "Instrument Serif", Georgia, serif;
-    font-size: 19px;
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 18px;
     color: var(--muted);
-    line-height: 1.55;
+    line-height: 1.6;
     font-style: italic;
-    font-weight: 400;
-    max-width: 560px;
+    font-weight: 300;
+    max-width: 540px;
     margin: 0;
 }
 
 /* ── Method list ── */
 .section-label {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 11px;
-    letter-spacing: 0.14em;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 20px;
-    padding-bottom: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
     border-bottom: 1px solid var(--border);
 }
 
@@ -192,14 +166,14 @@ a:hover { text-decoration: none; }
     display: flex;
     align-items: center;
     gap: 20px;
-    border-radius: 4px;
+    border-radius: 14px;
     position: relative;
 }
 
 .method-card:hover {
     border-color: var(--accent);
-    background: var(--bg-2);
-    transform: translateY(-1px);
+    background: var(--surface-2);
+    transform: translateY(-2px);
 }
 
 .method-icon {
@@ -207,13 +181,13 @@ a:hover { text-decoration: none; }
     height: 44px;
     border-radius: 50%;
     background: var(--accent-soft);
-    border: 1px solid var(--accent-dim);
+    border: 1px solid rgba(217, 119, 87, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--accent);
     font-family: "JetBrains Mono", monospace;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     flex-shrink: 0;
 }
@@ -222,7 +196,7 @@ a:hover { text-decoration: none; }
 
 .method-name {
     color: var(--text);
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     margin-bottom: 4px;
     letter-spacing: -0.01em;
@@ -234,35 +208,31 @@ a:hover { text-decoration: none; }
 }
 
 .method-arrow {
-    color: var(--muted-2);
-    font-family: "JetBrains Mono", monospace;
+    color: var(--border-strong);
     font-size: 16px;
     transition: color 0.2s, transform 0.2s;
 }
 
 .method-card:hover .method-arrow {
     color: var(--accent);
-    transform: translate(3px, -3px);
+    transform: translate(2px, -2px);
 }
 
 /* ── Footer ── */
 footer {
     margin-top: 80px;
-    padding: 32px 0;
+    padding: 28px 0;
     border-top: 1px solid var(--border);
     text-align: center;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 11px;
-    letter-spacing: 0.06em;
+    font-size: 13px;
     color: var(--muted);
-    text-transform: uppercase;
 }
 
 /* ── Modal ── */
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(10, 11, 13, 0.85);
+    background: rgba(10, 10, 8, 0.8);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     display: flex;
@@ -284,10 +254,10 @@ footer {
     padding: 32px;
     max-width: 420px;
     width: 100%;
-    border-radius: 8px;
+    border-radius: 20px;
     text-align: center;
     animation: pop 0.25s cubic-bezier(0.16,1,0.3,1) both;
-    box-shadow: 0 24px 48px rgba(0,0,0,0.5);
+    box-shadow: 0 24px 48px rgba(0,0,0,0.4);
 }
 
 @keyframes pop {
@@ -296,21 +266,19 @@ footer {
 }
 
 .modal-box h2 {
-    font-family: "Instrument Serif", Georgia, serif;
+    font-family: "Fraunces", Georgia, serif;
     font-size: 28px;
-    font-weight: 400;
+    font-weight: 300;
     color: var(--text);
     margin: 0 0 4px;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
 }
 
 .modal-titular {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: 12px;
     color: var(--muted);
     margin: 4px 0 20px;
+    letter-spacing: 0.04em;
 }
 
 .modal-box img {
@@ -319,15 +287,14 @@ footer {
     display: block;
     margin: 0 auto 20px;
     border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--bg);
+    border-radius: 12px;
+    background: var(--bg-2);
     padding: 10px;
 }
 
 .modal-label {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 10px;
-    letter-spacing: 0.12em;
+    font-size: 11px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
     margin-bottom: 6px;
@@ -336,7 +303,7 @@ footer {
 
 .pix-key {
     display: block;
-    background: var(--bg);
+    background: var(--bg-2);
     border: 1px solid var(--border);
     color: var(--accent);
     padding: 12px;
@@ -345,7 +312,7 @@ footer {
     word-break: break-all;
     margin: 0 0 20px;
     text-align: left;
-    border-radius: 4px;
+    border-radius: 8px;
     letter-spacing: 0.02em;
 }
 
@@ -358,26 +325,24 @@ footer {
 .copy-btn,
 .close-btn {
     flex: 1;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
     padding: 12px 18px;
     cursor: pointer;
     transition: all 0.18s;
     border-radius: 999px;
-    font-weight: 500;
 }
 
 .copy-btn {
     background: var(--accent);
     border: 1px solid var(--accent);
-    color: var(--bg);
+    color: #fff;
 }
 
 .copy-btn:hover {
-    background: transparent;
-    color: var(--accent);
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
 }
 
 .close-btn {
@@ -388,11 +353,12 @@ footer {
 
 .close-btn:hover {
     border-color: var(--text);
+    background: var(--surface-2);
 }
 
 /* ── Animations ── */
 @keyframes rise {
-    from { opacity: 0; transform: translateY(12px); }
+    from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -402,6 +368,6 @@ footer {
     .hero { padding: 56px 0 40px; margin-bottom: 40px; }
     .method-card { padding: 18px 20px; gap: 14px; }
     .method-icon { width: 38px; height: 38px; font-size: 12px; }
-    .modal-box { padding: 24px; }
+    .modal-box { padding: 24px; border-radius: 16px; }
     .modal-box img { width: 180px; height: 180px; }
 }
