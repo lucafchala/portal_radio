@@ -288,11 +288,55 @@
             letter-spacing: 0.08em;
         }
 
+        /* ── Logbook iframe ── */
+        .logbook-panel {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .logbook-header {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logbook-header a {
+            font-size: 11px;
+            color: var(--accent);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .logbook-header a:hover { opacity: 1; }
+
+        .logbook-frame-wrap {
+            position: relative;
+            width: 100%;
+            background: #080c09;
+        }
+
+        .logbook-frame-wrap iframe {
+            display: block;
+            width: 100%;
+            height: 480px;
+            border: none;
+            color-scheme: dark;
+            filter: invert(0.92) hue-rotate(147deg) brightness(0.88) saturate(0.6);
+        }
+
         /* ── Mobile ── */
         @media (max-width: 700px) {
             .container { padding: 28px 18px 50px; }
             .hero, .panel { padding: 20px; }
             #aprs-map { height: 300px; }
+            .logbook-frame-wrap iframe { height: 380px; }
         }
     </style>
 </head>
@@ -436,7 +480,22 @@
             <a href="https://aprs.fi/info/a/PU5OEF" target="_blank" rel="noopener">Ver histórico completo ↗</a>
         </p>
     </section>
-        <iframe align="top" frameborder="0" height="500" scrolling="yes" src="https://logbook.qrz.com/lbstat/PU2XIK/" width="640"></iframe>
+    <!-- ── Logbook QRZ ── -->
+    <section class="panel logbook-panel">
+        <div class="logbook-header">
+            <span>Diário de Bordo — PU5OEF</span>
+            <a href="https://logbook.qrz.com/lbstat/PU5OEF/" target="_blank" rel="noopener">Ver no QRZ ↗</a>
+        </div>
+        <div class="logbook-frame-wrap">
+            <iframe
+                src="https://logbook.qrz.com/lbstat/PU5OEF/"
+                title="Diário de Bordo PU5OEF — QRZ Logbook"
+                scrolling="auto"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+        </div>
+    </section>
 
     <footer>radio.lucafchala.com/pu5oef</footer>
 
