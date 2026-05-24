@@ -11,7 +11,7 @@
     <meta name="keywords" content="radioamadorismo, APRS, VHF, UHF, DMR, rádio digital, PU2XIK, PU5OEF, Brasil, ham radio">
     <meta name="author" content="Luca F. Chala — PU2XIK">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#F5F4ED">
+    <meta name="theme-color" content="#0A0B0D">
     <link rel="canonical" href="https://radio.lucafchala.com/">
 
     <!-- ── Open Graph (WhatsApp, Facebook, Discord, Telegram) ── -->
@@ -61,113 +61,145 @@
 
     <!-- ── Topbar ── -->
     <nav class="topbar">
-        <a class="topbar-brand" href="/">
-            <span class="topbar-brand-mark"></span>
-            <span class="topbar-brand-text">radio.<em>lucafchala</em>.com</span>
+        <a class="brand" href="/">
+            <span class="brand-dot"></span>
+            <span class="brand-text">radio.<em>lucafchala</em>.com</span>
         </a>
-        <div class="topbar-nav">
+        <div class="topnav">
             <a href="#operadores">Operadores</a>
+            <a href="#portal">Portal</a>
             <a href="https://github.com/lucafchala/portal_radio" target="_blank" rel="noopener">GitHub</a>
-            <a href="/doacoes/">Apoiar</a>
         </div>
     </nav>
 
     <!-- ── Hero ── -->
     <header class="hero">
-        <div class="hero-eyebrow">Portal comunitário · radioamadorismo</div>
+        <div class="section-num"><span>01</span> Portal · Transmissão aberta</div>
+
         <h1>
-            Um espaço simples<br>
-            para a <em>comunidade do rádio</em>.
+            Ondas <em>abertas</em><span class="dot">.</span><br>
+            Sinal <em>livre</em><span class="dot">.</span>
         </h1>
+
         <p class="hero-sub">
-            APRS, modos digitais, RF experimental e páginas de operadores PY/PU.
-            HTML estático — rápido, permanente e independente.
+            Portal comunitário para radioamadores brasileiros.
+            APRS, modos digitais, RF e <em>experimentação</em> —
+            tudo em HTML estático, leve e permanente.
         </p>
+
         <div class="hero-actions">
-            <a class="btn-primary" href="#operadores">
-                Ver operadores
-                <span>→</span>
+            <a class="btn btn-primary" href="#operadores">
+                Sintonizar
+                <span class="arrow">→</span>
             </a>
-            <a class="btn-secondary" href="/doacoes/">
-                ♥ Apoiar o portal
+            <a class="btn btn-ghost" href="/doacoes/">
+                ♥ Apoiar
             </a>
+        </div>
+
+        <!-- Decorative animated waveform -->
+        <div class="hero-wave" aria-hidden="true">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                <g fill="#F2A53A">
+                    <rect class="wave-bar" x="2"  y="42" width="6" height="16" />
+                    <rect class="wave-bar" x="16" y="28" width="6" height="44" />
+                    <rect class="wave-bar" x="30" y="14" width="6" height="72" />
+                    <rect class="wave-bar" x="44" y="22" width="6" height="56" />
+                    <rect class="wave-bar" x="58" y="36" width="6" height="28" />
+                    <rect class="wave-bar" x="72" y="18" width="6" height="64" />
+                    <rect class="wave-bar" x="86" y="40" width="6" height="20" />
+                </g>
+            </svg>
         </div>
     </header>
 
     <!-- ── Operadores ── -->
     <section class="section" id="operadores">
+        <div class="section-num"><span>02</span> Operadores ativos no portal</div>
         <div class="section-head">
-            <h2 class="section-title">Operadores</h2>
-            <span class="section-meta">3 páginas ativas</span>
+            <h2 class="section-title">
+                Estações <em>QRV</em>
+            </h2>
+            <span class="section-meta">3 entradas</span>
         </div>
 
-        <div class="op-grid">
-            <a class="op-card" href="/pu2xik/">
-                <div class="op-callsign">PU2XIK</div>
-                <div class="op-name">Luca F. Chala — São Paulo, BR</div>
+        <div class="op-list">
+
+            <a class="op-entry" href="/pu2xik/">
+                <span class="op-num">00</span>
+                <span class="op-call">PU2XIK <em>Luca F. Chala</em></span>
+                <span class="op-region">São Paulo · BR</span>
                 <span class="op-arrow">↗</span>
             </a>
 
-            <a class="op-card" href="/pu5oef/">
-                <div class="op-callsign">PU5OEF</div>
-                <div class="op-name">Edivaldo Filho — Paraná, BR</div>
+            <a class="op-entry" href="/pu5oef/">
+                <span class="op-num">01</span>
+                <span class="op-call">PU5OEF <em>Edivaldo Filho</em></span>
+                <span class="op-region">Paraná · BR</span>
                 <span class="op-arrow">↗</span>
             </a>
 
-            <a class="op-card" href="/pu2xyz/">
-                <div class="op-callsign">PU2XYZ</div>
-                <div class="op-name">Página exemplo de operador</div>
+            <a class="op-entry" href="/pu2xyz/">
+                <span class="op-num">02</span>
+                <span class="op-call">PU2XYZ <em>Página exemplo</em></span>
+                <span class="op-region">Template</span>
                 <span class="op-arrow">↗</span>
             </a>
+
         </div>
     </section>
 
-    <!-- ── Info ── -->
-    <section class="section">
+    <!-- ── Portal info ── -->
+    <section class="section" id="portal">
+        <div class="section-num"><span>03</span> Portal · Sobre &amp; participe</div>
         <div class="section-head">
-            <h2 class="section-title">Sobre o portal</h2>
+            <h2 class="section-title">
+                Espaço <em>permanente</em>
+            </h2>
+            <span class="section-meta">CW · HTML estático</span>
         </div>
 
-        <div class="panel-row">
+        <div class="info-grid">
 
-            <div class="panel">
-                <h2>Filosofia</h2>
-                <p>Espaço simples, rápido e permanente para a comunidade radioamadora.</p>
-                <p>HTML estático — confiável, leve e independente de frameworks.</p>
-                <p>Hospedado com Cloudflare Pages, HTTPS e CDN global.</p>
+            <div class="info-col">
+                <h3>Filosofia</h3>
+                <p>Um lugar simples, rápido e duradouro para a comunidade radioamadora.</p>
+                <p class="muted">HTML estático, sem frameworks, sem backend, sem banco.</p>
+                <p class="muted">Hospedado com Cloudflare Pages — HTTPS e CDN global.</p>
             </div>
 
-            <div class="panel">
-                <h2>Contato</h2>
-                <ul>
+            <div class="info-col">
+                <h3>Contato</h3>
+                <ul class="contact-list">
                     <li>
-                        <span>Site</span>
+                        <span class="label">Site</span>
                         <a href="https://lucafchala.com" target="_blank" rel="noopener">lucafchala.com</a>
                     </li>
                     <li>
-                        <span>Instagram</span>
+                        <span class="label">Instagram</span>
                         <a href="https://lucafchala.com/instagram" target="_blank" rel="noopener">@lucafchala</a>
                     </li>
                     <li>
-                        <span>Email</span>
+                        <span class="label">Email</span>
                         <a href="mailto:pagina.radio@lucafchala.com">pagina.radio@…</a>
                     </li>
                 </ul>
             </div>
 
-            <div class="panel">
-                <h2>Participe</h2>
-                <p>Cada operador pode ter sua própria página em:</p>
+            <div class="info-col">
+                <h3>Participe</h3>
+                <p>Cada operador pode ter sua própria página:</p>
                 <p><code>radio.lucafchala.com/pu2xyz</code></p>
-                <p>Envie HTML, imagens ou documentos e adicionamos ao portal.</p>
+                <p class="muted">Envie HTML, imagens ou documentos e adicionamos ao portal.</p>
             </div>
 
         </div>
     </section>
 
     <footer>
-        radio.lucafchala.com · portal comunitário de radioamadorismo<br>
-        <a href="https://github.com/lucafchala/portal_radio" target="_blank" rel="noopener">código-fonte no GitHub</a>
+        <span>radio.lucafchala.com · portal comunitário</span>
+        <span class="footer-cw">·-· · -·· ·· ---  ·-·· ··- -·-· ·- ··-· -·-· ···· ·- ·-·· ·-</span>
+        <a href="https://github.com/lucafchala/portal_radio" target="_blank" rel="noopener">Código no GitHub ↗</a>
     </footer>
 
 </div>
