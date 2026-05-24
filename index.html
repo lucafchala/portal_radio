@@ -93,44 +93,27 @@
             margin-top: 6px;
         }
 
-        .donation-panel {
-            border-color: var(--accent);
+        .donate-bar {
+            text-align: center;
+            margin-bottom: 25px;
         }
 
-        .donation-grid {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 20px;
-            align-items: start;
-            margin-top: 15px;
-        }
-
-        @media (max-width: 600px) {
-            .donation-grid { grid-template-columns: 1fr; }
-        }
-
-        .pix-key {
-            display: block;
-            background: #0d120f;
-            border: 1px solid var(--border);
-            padding: 10px;
-            font-size: 0.8rem;
-            word-break: break-all;
-            margin: 8px 0;
-        }
-
-        .copy-btn {
-            background: none;
+        .donate-bar a {
+            display: inline-block;
             border: 1px solid var(--accent);
             color: var(--accent);
-            font-family: inherit;
-            font-size: 0.85rem;
-            padding: 5px 12px;
-            cursor: pointer;
+            padding: 8px 28px;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-decoration: none;
             transition: 0.2s;
         }
 
-        .copy-btn:hover { background: var(--accent); color: var(--bg); }
+        .donate-bar a:hover {
+            background: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+        }
     </style>
 </head>
 
@@ -172,24 +155,8 @@
 
     </div>
 
-    <div class="panel donation-panel">
-
-        <h2>Apoie o Portal</h2>
-
-        <p>Se este portal foi útil pra você, considere fazer uma doação via PIX.</p>
-
-        <div class="donation-grid">
-            <div>
-                <p style="color: var(--muted)">Titular: LUCA F CHALA</p>
-                <p>Chave PIX (aleatória):</p>
-                <code class="pix-key">eb754dfc-2463-468c-8187-1a1c6f448937</code>
-                <button class="copy-btn" onclick="copyPix()">Copiar chave</button>
-            </div>
-            <div>
-                <img src="/pix-qr.jpg" alt="QR Code PIX" style="width:160px;height:160px;display:block;">
-            </div>
-        </div>
-
+    <div class="donate-bar">
+        <a href="/doacoes/">♥ Apoiar o portal</a>
     </div>
 
     <div class="panel">
@@ -281,13 +248,5 @@
 
 </div>
 
-<script>
-    function copyPix() {
-        navigator.clipboard.writeText('eb754dfc-2463-468c-8187-1a1c6f448937');
-        var btn = document.querySelector('.copy-btn');
-        btn.textContent = 'Copiado!';
-        setTimeout(function() { btn.textContent = 'Copiar chave'; }, 2000);
-    }
-</script>
 </body>
 </html>
