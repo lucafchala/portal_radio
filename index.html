@@ -98,6 +98,45 @@
         .contact a {
             color: var(--accent);
         }
+
+        .donation-panel {
+            border-color: var(--accent);
+        }
+
+        .donation-grid {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 20px;
+            align-items: start;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .donation-grid { grid-template-columns: 1fr; }
+        }
+
+        .pix-key {
+            display: block;
+            background: #0d120f;
+            border: 1px solid var(--border);
+            padding: 10px;
+            font-size: 0.8rem;
+            word-break: break-all;
+            margin: 8px 0;
+        }
+
+        .copy-btn {
+            background: none;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-family: inherit;
+            font-size: 0.85rem;
+            padding: 5px 12px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .copy-btn:hover { background: var(--accent); color: var(--bg); }
     </style>
 </head>
 
@@ -136,6 +175,26 @@
         <p>
             Hospedado com proteção Cloudflare, HTTPS e CDN global.
         </p>
+
+    </div>
+
+    <div class="panel donation-panel">
+
+        <h2>Apoie o Portal</h2>
+
+        <p>Se este portal foi útil pra você, considere fazer uma doação via PIX.</p>
+
+        <div class="donation-grid">
+            <div>
+                <p style="color: var(--muted)">Titular: LUCA F CHALA</p>
+                <p>Chave PIX (aleatória):</p>
+                <code class="pix-key">eb754dfc-2463-468c-8187-1a1c6f448937</code>
+                <button class="copy-btn" onclick="copyPix()">Copiar chave</button>
+            </div>
+            <div>
+                <canvas id="pix-qr"></canvas>
+            </div>
+        </div>
 
     </div>
 
@@ -228,5 +287,19 @@
 
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+<script>
+    QRCode.toCanvas(document.getElementById('pix-qr'),
+        '00020101021126580014br.gov.bcb.pix0136eb754dfc-2463-468c-8187-1a1c6f4489375204000053039865802BR5912LUCA F CHALA6009SAO PAULO62070503***6304E68D',
+        { width: 160, color: { dark: '#7dff9c', light: '#101612' } }
+    );
+
+    function copyPix() {
+        navigator.clipboard.writeText('eb754dfc-2463-468c-8187-1a1c6f448937');
+        var btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copiado!';
+        setTimeout(function() { btn.textContent = 'Copiar chave'; }, 2000);
+    }
+</script>
 </body>
 </html>
