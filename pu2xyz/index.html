@@ -70,72 +70,7 @@
     <!-- CSS compartilhado do portal (variáveis, reset, componentes base) -->
     <link rel="stylesheet" href="../style.css">
 
-    <style>
-        /* [ALTERE AQUI] Troque --accent pela cor que preferir.
-           Verde padrão (#7dff9c) já vem do style.css.
-           Exemplos: #c08030 (âmbar), #5fa8ff (azul), #ff7d9c (rosa) */
-
-        body {
-            font-family: Consolas, Monaco, monospace;
-            line-height: 1.6;
-        }
-
-        /* Hero — seção de cabeçalho com callsign em destaque */
-        .hero {
-            border: 1px solid var(--border);
-            background: var(--panel);
-            padding: 34px;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 {
-            font-size: clamp(40px, 10vw, 72px);
-            line-height: 0.95;
-            margin-bottom: 16px;
-        }
-
-        .callsign {
-            color: var(--accent);
-        }
-
-        .hero-sub {
-            color: var(--muted);
-            font-size: 0.85rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        /* Grade de 2 colunas para equipamentos + bandas */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-
-        /* Status — indicadores rápidos */
-        .status-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 14px;
-        }
-
-        .status-item {
-            border: 1px solid var(--border);
-            padding: 7px 12px;
-            font-size: 0.8rem;
-            color: var(--muted);
-        }
-
-        .status-item strong {
-            color: var(--text);
-        }
-
-        @media (max-width: 600px) {
-            .hero { padding: 22px; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>

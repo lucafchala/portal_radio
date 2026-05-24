@@ -8,112 +8,7 @@
     <meta name="robots" content="noindex">
     <link rel="icon" href="https://tucas.omg.lol/favicon.ico">
     <link rel="stylesheet" href="/style.css">
-    <style>
-        body { font-family: Consolas, Monaco, monospace; }
-
-        .method-card {
-            background: #0d120f;
-            border: 1px solid var(--border);
-            padding: 18px 20px;
-            cursor: pointer;
-            transition: 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .method-card:hover { border-color: var(--accent); }
-
-        .method-name {
-            color: var(--accent);
-            font-size: 1.05rem;
-            font-weight: bold;
-        }
-
-        .method-desc {
-            color: var(--muted);
-            font-size: 0.85rem;
-            margin-top: 3px;
-        }
-
-        .methods-list {
-            display: grid;
-            gap: 12px;
-        }
-
-        /* Modal */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 100;
-        }
-
-        .modal-box {
-            background: var(--panel);
-            border: 1px solid var(--accent);
-            padding: 30px;
-            max-width: 380px;
-            width: 90%;
-            text-align: center;
-        }
-
-        .modal-box h2 { margin-top: 0; }
-
-        .modal-box img {
-            width: 200px;
-            height: 200px;
-            display: block;
-            margin: 12px auto;
-        }
-
-        .pix-key {
-            display: block;
-            background: #0d120f;
-            border: 1px solid var(--border);
-            padding: 10px;
-            font-size: 0.75rem;
-            word-break: break-all;
-            margin: 10px 0;
-            text-align: left;
-        }
-
-        .modal-actions {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 16px;
-        }
-
-        .copy-btn {
-            background: none;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            font-family: inherit;
-            font-size: 0.85rem;
-            padding: 6px 14px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .copy-btn:hover { background: var(--accent); color: var(--bg); }
-
-        .close-btn {
-            background: none;
-            border: 1px solid var(--border);
-            color: var(--muted);
-            font-family: inherit;
-            font-size: 0.85rem;
-            padding: 6px 14px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .close-btn:hover { border-color: var(--muted); }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -169,23 +64,7 @@
     </div>
 </div>
 
-<script>
-    var modal = document.getElementById('pix-modal');
-
-    function openPix()  { modal.style.display = 'flex'; }
-    function closePix() { modal.style.display = 'none'; }
-
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) closePix();
-    });
-
-    function copyPix() {
-        navigator.clipboard.writeText('eb754dfc-2463-468c-8187-1a1c6f448937');
-        var btn = document.querySelector('.copy-btn');
-        btn.textContent = 'Copiado!';
-        setTimeout(function() { btn.textContent = 'Copiar chave'; }, 2000);
-    }
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>

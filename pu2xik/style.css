@@ -1,0 +1,224 @@
+/* Tema âmbar — sobrescreve variáveis do style.css compartilhado */
+:root {
+    --bg: #0d0c0a;
+    --border: #252220;
+    --text: #e6e1d6;
+    --muted: #6a6358;
+    --accent: #c08030;
+    --accent-dim: #6a4818;
+    --panel: #141210;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    min-height: 100vh;
+    max-width: 760px;
+    padding: 48px 32px 72px;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    opacity: 0.28;
+}
+
+header {
+    margin-bottom: 52px;
+    animation: rise 0.9s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+.name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 11vw, 84px);
+    font-weight: 300;
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+    margin-bottom: 18px;
+}
+
+.callsign {
+    color: var(--accent);
+    font-style: italic;
+}
+
+.micro {
+    margin-bottom: 22px;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.tagline {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex-wrap: wrap;
+}
+
+.tagline .sep {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--border);
+}
+
+.rule {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 36px 0;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+}
+
+.rule::before,
+.rule::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.bio {
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 48px;
+    max-width: 620px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+    margin-bottom: 36px;
+}
+
+.panel {
+    padding: 22px;
+}
+
+.panel h2 {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+.badge {
+    padding: 5px 10px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+a {
+    color: var(--text);
+    transition: color 0.15s;
+}
+
+a:hover {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.arr {
+    color: var(--accent-dim);
+    margin-right: 7px;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+a:hover .arr {
+    color: var(--accent);
+    transform: translateX(3px);
+}
+
+footer {
+    margin-top: 54px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+}
+
+@keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Logbook iframe ── */
+.logbook-wrap {
+    border: 1px solid var(--border);
+    background: var(--panel);
+    overflow: hidden;
+    margin-bottom: 26px;
+}
+
+.logbook-top {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logbook-top a {
+    color: var(--accent);
+    font-size: 10px;
+    opacity: 0.8;
+    transition: opacity 0.15s;
+}
+
+.logbook-top a:hover { opacity: 1; text-decoration: none; }
+
+.logbook-wrap iframe {
+    display: block;
+    width: 100%;
+    height: 460px;
+    border: none;
+    filter: invert(0.92) hue-rotate(30deg) brightness(0.82) saturate(0.55);
+}
+
+@media (max-width: 680px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    body {
+        padding: 34px 22px 60px;
+    }
+
+    .logbook-wrap iframe { height: 360px; }
+}

@@ -1,0 +1,61 @@
+body {
+    font-family: Consolas, Monaco, monospace;
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: clamp(1.1rem, 5.5vw, 2rem);
+    overflow-wrap: break-word;
+}
+
+.subtitle {
+    color: var(--muted);
+    margin-top: 10px;
+}
+
+.links {
+    display: grid;
+    gap: 15px;
+}
+
+.card {
+    background: #0d120f;
+    border: 1px solid var(--border);
+    padding: 15px;
+    transition: 0.2s;
+}
+
+.card:hover {
+    border-color: var(--accent);
+}
+
+.card a {
+    font-size: 1.05rem;
+}
+
+.desc {
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+.donate-bar {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.donate-bar a {
+    display: inline-block;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 8px 28px;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.donate-bar a:hover {
+    background: var(--accent);
+    color: var(--bg);
+    text-decoration: none;
+}
