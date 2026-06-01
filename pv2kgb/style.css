@@ -276,8 +276,8 @@ a:hover { text-decoration: none; }
     border-bottom: 1px solid var(--border);
 }
 
-.panel a:first-child { padding-top: 0; }
-.panel a:last-child  { border-bottom: none; padding-bottom: 0; }
+.panel a:first-of-type { padding-top: 0; }
+.panel a:last-of-type  { border-bottom: none; padding-bottom: 0; }
 
 .panel a:hover { color: var(--accent); }
 
