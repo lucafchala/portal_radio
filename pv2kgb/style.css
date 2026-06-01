@@ -1,19 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* ── Paleta PV2KGB — mesmo base da home, accent azul elétrico ── */
+/* ── Paleta idêntica à home, accent azul para identidade PV2KGB ── */
 :root {
-    --bg:           #1a1c22;
-    --bg-2:         #1f2128;
-    --surface:      #252830;
-    --surface-2:    #2d3039;
-    --border:       #353840;
-    --border-strong:#454850;
-    --text:         #edeef5;
-    --muted:        #9498a8;
-    --muted-2:      #737787;
-    --accent:       #3d8eff;
-    --accent-hover: #2678f0;
-    --accent-soft:  rgba(61, 142, 255, 0.11);
+    --bg:           #1F1E1B;
+    --bg-2:         #25241F;
+    --surface:      #2A2825;
+    --surface-2:    #34322D;
+    --border:       #3A3833;
+    --border-strong:#4A4842;
+    --text:         #F0EBE0;
+    --muted:        #A09B91;
+    --muted-2:      #7A7670;
+    --accent:       #3B82F6;
+    --accent-hover: #2563EB;
+    --accent-soft:  rgba(59, 130, 246, 0.11);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,6 +28,7 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "cv11";
 }
 
 body::before {
@@ -36,15 +37,15 @@ body::before {
     inset: 0;
     pointer-events: none;
     background:
-        radial-gradient(ellipse 65% 45% at 90% 0%,   rgba(61,142,255,0.09), transparent 60%),
-        radial-gradient(ellipse 45% 35% at 0%  100%, rgba(61,142,255,0.04), transparent 60%);
+        radial-gradient(ellipse 70% 50% at 85% 0%,   rgba(59,130,246,0.07), transparent 60%),
+        radial-gradient(ellipse 50% 40% at 0%  100%, rgba(59,130,246,0.03), transparent 60%);
     z-index: 0;
 }
 
 .container {
-    max-width: 860px;
+    max-width: 920px;
     margin: 0 auto;
-    padding: 0 32px 96px;
+    padding: 0 32px 80px;
     position: relative;
     z-index: 1;
 }
@@ -91,15 +92,12 @@ a:hover { text-decoration: none; }
     color: var(--muted);
     font-size: 13.5px;
     transition: color 0.15s;
-    display: flex;
-    align-items: center;
-    gap: 6px;
 }
 .topbar-back:hover { color: var(--text); }
 
 /* ── Hero ── */
 .hero {
-    padding: 80px 0 64px;
+    padding: 88px 0 72px;
     border-bottom: 1px solid var(--border);
     margin-bottom: 64px;
     animation: rise 0.7s cubic-bezier(0.16,1,0.3,1) both;
@@ -114,7 +112,7 @@ a:hover { text-decoration: none; }
     padding: 6px 14px;
     background: var(--accent-soft);
     border-radius: 999px;
-    margin-bottom: 28px;
+    margin-bottom: 32px;
     font-weight: 500;
 }
 
@@ -129,9 +127,9 @@ a:hover { text-decoration: none; }
 
 .hero h1 {
     font-family: "Fraunces", Georgia, serif;
-    font-size: clamp(44px, 8vw, 82px);
+    font-size: clamp(46px, 7.5vw, 80px);
     font-weight: 300;
-    line-height: 0.97;
+    line-height: 1.02;
     letter-spacing: -0.025em;
     margin-bottom: 28px;
     font-feature-settings: "ss01";
@@ -144,20 +142,23 @@ a:hover { text-decoration: none; }
 }
 
 .hero-sub {
-    font-size: 15px;
+    font-family: "Fraunces", Georgia, serif;
+    font-size: clamp(17px, 2.2vw, 21px);
     color: var(--muted);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 400;
+    line-height: 1.55;
+    font-weight: 300;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0;
 }
 
 /* ── Bio ── */
 .bio {
     font-size: 15px;
     color: var(--muted);
-    line-height: 1.75;
+    line-height: 1.8;
     max-width: 640px;
-    margin-bottom: 48px;
+    margin-bottom: 40px;
     animation: rise 0.7s 0.08s cubic-bezier(0.16,1,0.3,1) both;
 }
 
@@ -166,16 +167,18 @@ a:hover { text-decoration: none; }
 /* ── Foto da estação ── */
 .station {
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 16px;
     overflow: hidden;
-    margin-bottom: 48px;
+    margin-bottom: 28px;
     animation: rise 0.7s 0.14s cubic-bezier(0.16,1,0.3,1) both;
 }
 
 .station img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 480px;
+    object-fit: cover;
+    object-position: center 20%;
 }
 
 .station figcaption {
@@ -183,14 +186,14 @@ a:hover { text-decoration: none; }
     border-top: 1px solid var(--border);
     font-size: 12px;
     color: var(--muted-2);
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
 }
 
 /* ── Grid de painéis ── */
 .panel-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 2fr;
     gap: 14px;
     margin-bottom: 14px;
     animation: rise 0.7s 0.2s cubic-bezier(0.16,1,0.3,1) both;
@@ -201,23 +204,23 @@ a:hover { text-decoration: none; }
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 14px;
-    padding: 26px 28px;
+    padding: 28px;
     margin-bottom: 14px;
-    animation: rise 0.7s 0.22s cubic-bezier(0.16,1,0.3,1) both;
+    animation: rise 0.7s 0.2s cubic-bezier(0.16,1,0.3,1) both;
 }
 
-.panel-grid .panel { margin-bottom: 0; }
+.panel-grid .panel { margin-bottom: 0; animation: none; }
 
 .panel h2 {
     font-family: "Fraunces", Georgia, serif;
-    font-size: 17px;
+    font-size: 19px;
     font-weight: 500;
     color: var(--text);
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     letter-spacing: -0.005em;
 }
 
-/* Badges arredondados */
+/* Badges */
 .badge {
     display: inline-flex;
     align-items: center;
@@ -229,6 +232,7 @@ a:hover { text-decoration: none; }
     margin: 0 6px 8px 0;
     transition: border-color 0.15s, color 0.15s, background 0.15s;
     font-family: "JetBrains Mono", monospace;
+    letter-spacing: 0.01em;
 }
 
 .badge:hover {
@@ -245,27 +249,17 @@ a:hover { text-decoration: none; }
 }
 
 .panel li {
-    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    padding: 11px 0;
     font-size: 14px;
     color: var(--muted);
     border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 .panel li:first-child { padding-top: 0; }
 .panel li:last-child  { border-bottom: none; padding-bottom: 0; }
-
-.panel li::before {
-    content: '';
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--accent);
-    opacity: 0.5;
-    flex-shrink: 0;
-}
 
 /* Links */
 .panel a {
@@ -275,43 +269,47 @@ a:hover { text-decoration: none; }
     transition: color 0.15s;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 11px 0;
+    justify-content: space-between;
+    padding: 12px 0;
     border-bottom: 1px solid var(--border);
 }
 
-.panel a:last-child { border-bottom: none; padding-bottom: 0; }
 .panel a:first-of-type { padding-top: 0; }
-
+.panel a:last-of-type  { border-bottom: none; padding-bottom: 0; }
 .panel a:hover { color: var(--accent); }
 
-.panel a .arr {
-    color: var(--muted-2);
+.link-arrow {
+    color: var(--border-strong);
     font-size: 13px;
-    transition: transform 0.2s, color 0.15s;
+    transition: color 0.2s, transform 0.2s;
+    flex-shrink: 0;
 }
 
-.panel a:hover .arr {
+.panel a:hover .link-arrow {
     color: var(--accent);
-    transform: translateX(3px);
+    transform: translate(2px, -2px);
 }
 
 /* ── Footer ── */
 footer {
-    margin-top: 40px;
+    margin-top: 24px;
     padding-top: 32px;
     border-top: 1px solid var(--border);
-    text-align: center;
-    color: var(--muted-2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
     font-size: 13px;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 footer a {
     color: var(--muted);
-    transition: color 0.15s;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
 }
-
-footer a:hover { color: var(--accent); }
+footer a:hover { color: var(--accent); border-color: var(--accent); }
 
 /* ── Animações ── */
 @keyframes rise {
@@ -326,8 +324,10 @@ footer a:hover { color: var(--accent); }
 
 /* ── Mobile ── */
 @media (max-width: 640px) {
-    .container { padding: 0 20px 64px; }
-    .hero { padding: 52px 0 44px; margin-bottom: 48px; }
+    .container { padding: 0 20px 60px; }
+    .hero { padding: 56px 0 48px; margin-bottom: 48px; }
+    .station img { height: 320px; }
     .panel-grid { grid-template-columns: 1fr; }
     .panel { padding: 22px; }
+    footer { flex-direction: column; align-items: flex-start; }
 }

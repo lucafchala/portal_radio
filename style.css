@@ -1,15 +1,5 @@
-/* Estilos compartilhados — radio.lucafchala.com
-   Importado por todas as páginas do portal.
-   Cada página sobrescreve variáveis e estilos específicos no próprio <style>. */
-
-:root {
-    --bg: #0b0f0c;
-    --panel: #101612;
-    --border: #2d3c32;
-    --text: #d6e0d5;
-    --accent: #7dff9c;
-    --muted: #8a968d;
-}
+/* Estilos base compartilhados — radio.lucafchala.com
+   Cada página define suas próprias variáveis e sobrescreve conforme necessário. */
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -17,63 +7,4 @@
 
 body {
     margin: 0;
-    background: var(--bg);
-    color: var(--text);
-}
-
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 30px 20px;
-}
-
-.panel {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    padding: 25px;
-    margin-bottom: 25px;
-}
-
-.badge {
-    display: inline-block;
-    border: 1px solid var(--border);
-    padding: 5px 10px;
-    color: var(--accent);
-    font-size: 12px;
-    margin-right: 8px;
-    margin-bottom: 8px;
-    background: #0d120f;
-}
-
-h1, h2 {
-    margin-top: 0;
-    color: var(--accent);
-}
-
-a {
-    color: var(--accent);
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-code {
-    color: var(--accent);
-}
-
-ul {
-    padding-left: 18px;
-}
-
-li {
-    margin-bottom: 8px;
-}
-
-footer {
-    text-align: center;
-    color: var(--muted);
-    font-size: 0.9rem;
-    margin-top: 40px;
 }
