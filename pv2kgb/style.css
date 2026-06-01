@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* ── Paleta: base idêntica à home, accent azul para identidade PV2KGB ── */
+/* ── Paleta idêntica à home, accent azul para identidade PV2KGB ── */
 :root {
     --bg:           #1F1E1B;
     --bg-2:         #25241F;
@@ -99,7 +99,7 @@ a:hover { text-decoration: none; }
 .hero {
     padding: 88px 0 72px;
     border-bottom: 1px solid var(--border);
-    margin-bottom: 72px;
+    margin-bottom: 64px;
     animation: rise 0.7s cubic-bezier(0.16,1,0.3,1) both;
 }
 
@@ -131,7 +131,7 @@ a:hover { text-decoration: none; }
     font-weight: 300;
     line-height: 1.02;
     letter-spacing: -0.025em;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
     font-feature-settings: "ss01";
 }
 
@@ -143,28 +143,23 @@ a:hover { text-decoration: none; }
 
 .hero-sub {
     font-family: "Fraunces", Georgia, serif;
-    font-size: clamp(16px, 2vw, 20px);
+    font-size: clamp(17px, 2.2vw, 21px);
     color: var(--muted);
     line-height: 1.55;
     font-weight: 300;
     font-style: italic;
-    max-width: 560px;
+    max-width: 600px;
+    margin: 0;
 }
 
-/* ── Intro: bio + foto lado a lado ── */
-.intro {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    align-items: start;
-    margin-bottom: 28px;
-    animation: rise 0.7s 0.1s cubic-bezier(0.16,1,0.3,1) both;
-}
-
+/* ── Bio ── */
 .bio {
     font-size: 15px;
     color: var(--muted);
-    line-height: 1.75;
+    line-height: 1.8;
+    max-width: 640px;
+    margin-bottom: 40px;
+    animation: rise 0.7s 0.08s cubic-bezier(0.16,1,0.3,1) both;
 }
 
 .bio strong { color: var(--text); font-weight: 500; }
@@ -172,20 +167,22 @@ a:hover { text-decoration: none; }
 /* ── Foto da estação ── */
 .station {
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 16px;
     overflow: hidden;
+    margin-bottom: 28px;
+    animation: rise 0.7s 0.14s cubic-bezier(0.16,1,0.3,1) both;
 }
 
 .station img {
     display: block;
     width: 100%;
-    height: 380px;
+    height: 480px;
     object-fit: cover;
-    object-position: center top;
+    object-position: center 20%;
 }
 
 .station figcaption {
-    padding: 11px 18px;
+    padding: 12px 20px;
     border-top: 1px solid var(--border);
     font-size: 12px;
     color: var(--muted-2);
@@ -196,10 +193,10 @@ a:hover { text-decoration: none; }
 /* ── Grid de painéis ── */
 .panel-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 2fr;
     gap: 14px;
     margin-bottom: 14px;
-    animation: rise 0.7s 0.18s cubic-bezier(0.16,1,0.3,1) both;
+    animation: rise 0.7s 0.2s cubic-bezier(0.16,1,0.3,1) both;
 }
 
 /* ── Painéis ── */
@@ -209,7 +206,7 @@ a:hover { text-decoration: none; }
     border-radius: 14px;
     padding: 28px;
     margin-bottom: 14px;
-    animation: rise 0.7s 0.18s cubic-bezier(0.16,1,0.3,1) both;
+    animation: rise 0.7s 0.2s cubic-bezier(0.16,1,0.3,1) both;
 }
 
 .panel-grid .panel { margin-bottom: 0; animation: none; }
@@ -219,11 +216,11 @@ a:hover { text-decoration: none; }
     font-size: 19px;
     font-weight: 500;
     color: var(--text);
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     letter-spacing: -0.005em;
 }
 
-/* Badges arredondados */
+/* Badges */
 .badge {
     display: inline-flex;
     align-items: center;
@@ -235,6 +232,7 @@ a:hover { text-decoration: none; }
     margin: 0 6px 8px 0;
     transition: border-color 0.15s, color 0.15s, background 0.15s;
     font-family: "JetBrains Mono", monospace;
+    letter-spacing: 0.01em;
 }
 
 .badge:hover {
@@ -252,12 +250,12 @@ a:hover { text-decoration: none; }
 
 .panel li {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 11px 0;
     font-size: 14px;
     color: var(--muted);
     border-bottom: 1px solid var(--border);
+    gap: 12px;
 }
 
 .panel li:first-child { padding-top: 0; }
@@ -272,19 +270,19 @@ a:hover { text-decoration: none; }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 11px 0;
+    padding: 12px 0;
     border-bottom: 1px solid var(--border);
 }
 
 .panel a:first-of-type { padding-top: 0; }
 .panel a:last-of-type  { border-bottom: none; padding-bottom: 0; }
-
 .panel a:hover { color: var(--accent); }
 
 .link-arrow {
     color: var(--border-strong);
     font-size: 13px;
     transition: color 0.2s, transform 0.2s;
+    flex-shrink: 0;
 }
 
 .panel a:hover .link-arrow {
@@ -311,11 +309,7 @@ footer a {
     border-bottom: 1px solid transparent;
     transition: color 0.15s, border-color 0.15s;
 }
-
-footer a:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-}
+footer a:hover { color: var(--accent); border-color: var(--accent); }
 
 /* ── Animações ── */
 @keyframes rise {
@@ -329,11 +323,10 @@ footer a:hover {
 }
 
 /* ── Mobile ── */
-@media (max-width: 680px) {
+@media (max-width: 640px) {
     .container { padding: 0 20px 60px; }
-    .hero { padding: 56px 0 48px; margin-bottom: 56px; }
-    .intro { grid-template-columns: 1fr; }
-    .station img { height: 260px; }
+    .hero { padding: 56px 0 48px; margin-bottom: 48px; }
+    .station img { height: 320px; }
     .panel-grid { grid-template-columns: 1fr; }
     .panel { padding: 22px; }
     footer { flex-direction: column; align-items: flex-start; }
