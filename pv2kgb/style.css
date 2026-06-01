@@ -1,0 +1,232 @@
+/* Tema azul elétrico — PV2KGB */
+:root {
+    --bg: #09090f;
+    --border: #1a1a2e;
+    --text: #e8eaf6;
+    --muted: #555880;
+    --accent: #2B7FFF;
+    --accent-dim: #1a3a7a;
+    --panel: #0e0e1a;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    min-height: 100vh;
+    max-width: 760px;
+    padding: 48px 32px 72px;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    opacity: 0.22;
+}
+
+header {
+    margin-bottom: 52px;
+    animation: rise 0.9s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+.name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 11vw, 84px);
+    font-weight: 300;
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+    margin-bottom: 18px;
+}
+
+.callsign {
+    color: var(--accent);
+    font-style: italic;
+}
+
+.micro {
+    margin-bottom: 22px;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.tagline {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex-wrap: wrap;
+}
+
+.tagline .sep {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--border);
+}
+
+.rule {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 36px 0;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+}
+
+.rule::before,
+.rule::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.bio {
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 36px;
+    max-width: 620px;
+}
+
+/* Foto da estação */
+.station {
+    margin-bottom: 48px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.station img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.station figcaption {
+    padding: 10px 16px;
+    border-top: 1px solid var(--border);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+    margin-bottom: 36px;
+}
+
+.panel {
+    padding: 22px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    margin-bottom: 26px;
+}
+
+.panel h2 {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+.grid .panel {
+    margin-bottom: 0;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 11px;
+    margin: 3px 3px 3px 0;
+    transition: border-color 0.15s, color 0.15s;
+}
+
+.badge:hover {
+    border-color: var(--accent-dim);
+    color: var(--text);
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    padding: 4px 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+.arr {
+    color: var(--accent-dim);
+    margin-right: 7px;
+    transition: transform 0.2s, color 0.15s;
+    display: inline-block;
+}
+
+a:hover .arr {
+    color: var(--accent);
+    transform: translateX(3px);
+}
+
+footer {
+    margin-top: 54px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--muted);
+}
+
+@keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 680px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    body {
+        padding: 34px 22px 60px;
+    }
+}
