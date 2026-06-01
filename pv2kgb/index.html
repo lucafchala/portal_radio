@@ -11,6 +11,7 @@
     <meta name="keywords" content="PV2KGB, radioamador, VHF, UHF, satcom, FT8, ham radio, São Paulo, Brasil">
     <meta name="author" content="Gustavo — PV2KGB">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1a1c22">
     <link rel="canonical" href="https://radio.lucafchala.com/pv2kgb/">
 
     <!-- ── Open Graph ── -->
@@ -40,9 +41,7 @@
         "name": "Gustavo",
         "identifier": "PV2KGB",
         "url": "https://radio.lucafchala.com/pv2kgb/",
-        "sameAs": [
-          "https://www.qrz.com/db/PV2KGB"
-        ],
+        "sameAs": ["https://www.qrz.com/db/PV2KGB"],
         "address": {
           "@type": "PostalAddress",
           "addressRegion": "São Paulo",
@@ -53,64 +52,60 @@
     </script>
 
     <link rel="icon" href="https://tucas.omg.lol/favicon.ico">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+<div class="container">
 
-    <header>
+    <!-- ── Topbar ── -->
+    <nav class="topbar">
+        <a class="topbar-brand" href="/">
+            <span class="topbar-brand-mark"></span>
+            <span class="topbar-brand-text">radio.<em>lucafchala</em>.com</span>
+        </a>
+        <a class="topbar-back" href="/#operadores">
+            ← Operadores
+        </a>
+    </nav>
 
-        <h1 class="name">
+    <!-- ── Hero ── -->
+    <header class="hero">
+        <div class="hero-eyebrow">Indicativo emitido · 1 jun 2026</div>
+
+        <h1>
             Gustavo<br>
-            <span class="callsign">PV2KGB</span>
+            <em>PV2KGB</em>
         </h1>
 
-        <p class="micro">
-            radioamadorismo · vhf · uhf · satcom
-        </p>
-
-        <div class="tagline">
-            <span>VHF</span>
-            <span class="sep"></span>
-            <span>UHF</span>
-            <span class="sep"></span>
-            <span>Satcom</span>
-            <span class="sep"></span>
-            <span>São Paulo, BR</span>
-        </div>
-
+        <p class="hero-sub">VHF · UHF · Satcom · São Paulo, BR</p>
     </header>
 
-    <div class="rule">CQ DE PV2KGB</div>
-
+    <!-- ── Bio ── -->
     <p class="bio">
         Opero sob o indicativo <strong>PV2KGB</strong>, em São Paulo do 16º andar.
         Foco em VHF e UHF com uma estação portátil inteiramente impressa em 3D.
-        Explorando satcom, FT8 e DX.
+        Estudando DX e FT8, e começando a explorar satcom.
     </p>
 
+    <!-- ── Foto da estação ── -->
     <figure class="station">
         <img src="station.jpg" alt="Ham'box de PV2KGB — estação portátil 3D impressa com QT-8900 e Aquario RP70">
         <figcaption>Ham'box 3D impresso — LabRax · MakerWorld</figcaption>
     </figure>
 
-    <div class="grid">
+    <!-- ── Equipamentos + Bandas ── -->
+    <div class="panel-grid">
 
         <div class="panel">
             <h2>Equipamentos</h2>
-            <div class="badge">QT-8900</div>
-            <div class="badge">Aquario RP70</div>
-            <div class="badge">FlowerPot V/U</div>
-            <div class="badge">NanoVNA</div>
-            <div class="badge">UV-5RH-ProMax</div>
-            <div class="badge">UV-92</div>
-            <div class="badge">UV-5R</div>
+            <span class="badge">QT-8900</span>
+            <span class="badge">Aquario RP70</span>
+            <span class="badge">FlowerPot V/U</span>
+            <span class="badge">NanoVNA</span>
+            <span class="badge">UV-5RH-ProMax</span>
+            <span class="badge">UV-92</span>
+            <span class="badge">UV-5R</span>
         </div>
 
         <div class="panel">
@@ -125,25 +120,21 @@
 
     </div>
 
+    <!-- ── Links ── -->
     <div class="panel">
         <h2>Links</h2>
-        <ul>
-            <li>
-                <a href="https://www.qrz.com/db/PV2KGB" target="_blank" rel="noopener">
-                    <span class="arr">→</span> QRZ.com
-                </a>
-            </li>
-            <li>
-                <a href="https://radio.lucafchala.com" target="_blank" rel="noopener">
-                    <span class="arr">→</span> Portal de Rádio
-                </a>
-            </li>
-        </ul>
+        <a href="https://www.qrz.com/db/PV2KGB" target="_blank" rel="noopener">
+            <span class="arr">→</span> QRZ.com / PV2KGB
+        </a>
+        <a href="https://radio.lucafchala.com" target="_blank" rel="noopener">
+            <span class="arr">→</span> Portal de Rádio
+        </a>
     </div>
 
     <footer>
-        radio.lucafchala.com/pv2kgb
+        <span>radio.lucafchala.com/pv2kgb</span>
     </footer>
 
+</div>
 </body>
 </html>
