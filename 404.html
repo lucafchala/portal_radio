@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>404 — Operador não encontrado · radio.lucafchala.com</title>
+    <meta name="description" content="A página que você procura não existe neste portal.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#1F1E1B">
+
+    <link rel="icon" href="https://tucas.omg.lol/favicon.ico">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/index.css">
+
+    <style>
+        .error-wrap {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 0;
+        }
+
+        .error-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 48px 52px;
+            max-width: 520px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .error-code {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 80px;
+            font-weight: 500;
+            line-height: 1;
+            color: var(--accent);
+            letter-spacing: -0.04em;
+            margin-bottom: 12px;
+        }
+
+        .error-title {
+            font-family: "Fraunces", Georgia, serif;
+            font-size: 22px;
+            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .error-desc {
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 36px;
+        }
+
+        .error-desc code {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 13px;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 1px 6px;
+            color: var(--text);
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.15s, color 0.15s, border-color 0.15s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            border: 1px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--muted);
+            border: 1px solid var(--border);
+        }
+
+        .btn-ghost:hover {
+            color: var(--text);
+            border-color: var(--border-strong);
+        }
+
+        .error-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 36px 0 28px;
+        }
+
+        .error-hint {
+            font-size: 13px;
+            color: var(--muted-2);
+        }
+
+        .error-hint strong {
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            .error-card {
+                padding: 36px 24px;
+            }
+            .error-code {
+                font-size: 64px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- topbar -->
+    <nav class="topbar">
+        <a href="/" class="topbar-brand">
+            <svg class="topbar-brand-mark" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="9" cy="9" r="3" fill="currentColor"/>
+                <path d="M9 1v3M9 14v3M1 9h3M14 9h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            radio.lucafchala.com
+        </a>
+        <span style="font-size:13px;color:var(--muted-2)">Página não encontrada</span>
+    </nav>
+
+    <div class="error-wrap">
+        <div class="error-card">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Operador não encontrado</h1>
+            <p class="error-desc">
+                O indicativo ou página que você procura não existe neste portal.<br>
+                Verifique se o endereço está correto — os indicativos são em letras minúsculas,
+                por exemplo <code>/pu2xik/</code>.
+            </p>
+
+            <div class="error-actions">
+                <a href="/" class="btn btn-primary">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                        <path d="M7 1L1 7l6 6M1 7h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Ver todos os operadores
+                </a>
+                <a href="javascript:history.back()" class="btn btn-ghost">Voltar</a>
+            </div>
+
+            <hr class="error-divider">
+
+            <p class="error-hint">
+                <strong>Operadores cadastrados:</strong>
+                <a href="/pu2xik/" style="color:var(--accent);text-decoration:none">PU2XIK</a>,
+                <a href="/pu5oef/" style="color:var(--accent);text-decoration:none">PU5OEF</a>,
+                <a href="/pv2kgb/" style="color:var(--accent);text-decoration:none">PV2KGB</a>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
