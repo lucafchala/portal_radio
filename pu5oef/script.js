@@ -32,13 +32,15 @@ function renderAPRSData(entry) {
 
     const lat = parseFloat(entry.lat);
     const lng = parseFloat(entry.lng);
+    // APRS data comes from over-the-air packets — coerce before HTML interpolation
+    const speed = entry.speed != null && !isNaN(Number(entry.speed)) ? Number(entry.speed) : null;
 
     document.getElementById("aprs-time").innerText =
         `${tsStr} (${diff} min atrás)`;
     document.getElementById("aprs-coords").innerText =
         `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
     document.getElementById("aprs-speed").innerText =
-        entry.speed != null ? `${entry.speed} km/h` : "parado";
+        speed != null ? `${speed} km/h` : "parado";
     document.getElementById("aprs-alt").innerText =
         entry.altitude != null ? `${Math.round(entry.altitude)} m` : "—";
     document.getElementById("aprs-path").innerText =
@@ -81,7 +83,7 @@ function renderAPRSData(entry) {
         .bindPopup(`
             <strong style="color:#7dff9c;font-size:13px;">PU5OEF-1</strong><br>
             ${lat.toFixed(5)}, ${lng.toFixed(5)}<br>
-            Velocidade: ${entry.speed != null ? entry.speed + " km/h" : "parado"}<br>
+            Velocidade: ${speed != null ? speed + " km/h" : "parado"}<br>
             Altitude: ${entry.altitude != null ? Math.round(entry.altitude) + " m" : "—"}<br>
             ${tsStr}<br><br>
             <a href="https://aprs.fi/info/a/PU5OEF-1" target="_blank">Ver no aprs.fi ↗</a>
